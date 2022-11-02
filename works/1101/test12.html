@@ -1,0 +1,71 @@
+<!-- 
+  FlexBox는 바둑판 모양의 정렬이 어려움 => 즉, 한 방향 레이아웃에만 적합
+  Grid는 2차원구조(가로/세로)의 레이아웃으로 작업
+  Grid는 2차원구조 레이아웃으로 
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test12.html</title>
+  <style>
+    .item{
+      color: white;
+    }
+
+    /*Grid형태 정의(grid-template-rows/columns) (->행과 열 형태의 개념)*/
+    /*Grid를 이용한 항목간의 병합*/
+    .container{
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-columns: 1fr 1fr 1fr; /*23을 기준으로 기준축 번호 지정됨 if) repeat(4,1fr)이라면, header 만들 때 1/5로 변경*/
+      grid-auto-rows: minmax(10em,auto); /*글자크기를 기준으로! -> 1em의 10배의 크기를 최소 영역으로 하고, max는 너 알아서 해*/
+    }
+
+    /*
+    1번 item을 header로 지정하고 싶어! 행은 영역의 왼쪽 모서리 선, 열은 영역의 윗쪽 모서리 선을 '1'로 시작함! (축의 시작은 '1')
+    Q. 1~3열까지를 1개 열로 병합? -> 축의 시작은 1, 마지막은 4
+    */
+    .item:nth-child(1){
+      grid-column: 1/4; /*열의 start번호/last번호 -> 1/4*/
+    }
+    
+    /*Q. 4번 item을 2행과 3행으로 병합하고 싶어! -> 2행의 축 시작: 2, 3행의 축 끝은 4*/
+    .item:nth-child(4){
+      grid-row: 2/4; /*행의 start번호/last번호 -> 2/4 -> 여기까지하면 병합은 되지만, 열의 위치가 1열에 있으므로 바꿔줘야 함*/
+      grid-column: 3; /*병합된 item을 3번 열의 위치로 이동시켜줌*/
+    }
+
+    /*9번 아이템을 footer로 정의하고자 함! (item 7번이 기준 아님!)*/
+    .item:nth-child(9){
+      grid-column: 1/4;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item" style="background-color:#344765">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div> 
+    <div class="item" style="background-color:#4F6188">2. 안녕하세요</div> 
+    <div class="item" style="background-color:#939499">
+      3. 안녕하세요
+      3. 안녕하세요
+      3. 안녕하세요
+    </div> 
+    <div class="item" style="background-color:#BBC8CA">4. 안녕하세요</div> 
+    <div class="item" style="background-color:#D4B8B6">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div> 
+    <div class="item" style="background-color:#AC536D">6. 안녕하세요</div> 
+    <div class="item" style="background-color:#EEE4BD">7. 안녕하세요</div> 
+    <div class="item" style="background-color:#E6D7A5">8. 안녕하세요</div> 
+    <div class="item" style="background-color:#BFC9AB">9. 안녕하세요</div> 
+    <!-- <div class="item" style="background-color:#B89E93">10. 안녕하세요</div>  -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <!--
+      frameborder : 프레임사이의 경계선표시여부(1:표시, 0:해제)
+      noresize : 크기 고정
+      scrolling="" : "auto : 기본설정 / yes : 무조건 스크롤 생성 / no : 스크롤 생성X"
+      marginheight/marginwidth : 상하 띄움 / 좌우 띄움 (!= topmargin)
+    -->
+    <frameset rows="150px,*,100px" border="0px" frameborder="1" framespacing="0px"> <!-- 행 -->
+      <frame src="a.html" noresize scrolling="yes" marginheight="10px" marginwidth="20px">
+      <frameset cols="180px,*,100px"> <!-- 열 -->
+        <frame src="b.html" noresize>
+        <frame src="c.html">
+        <frame src="e.html">
+      </frameset>
+      <frame src="d.html"> <!-- a,b 고정에 의해 크기 자동 고정 -->
+    </frameset>   
+  </head>
+</html>

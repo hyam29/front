@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>폼(양식)태그 연습</title>
+  </head>
+  <body>
+    <h2>Form 태그 = 양식태그</h2>
+    <!--
+    <form name="폼이름" method="전송방식" action="서버로 전송되는 파일명">~~~</form>
+    
+    * method(전송 방식) *
+      1. get방식 : URL 통해서 자료 전달
+      2. post방식 : HTTP의 Header에 정보를 함께 전달시켜줌
+    -->
+    <h2>입력양식 연습</h2>
+    <form name="myform" method="get" action="#">
+      <p>
+      <!-- 
+        * 태그명(input) 타입(type)="속성"
+        * 웹에서는 숫자가 무조건 문자로 인식 -> integer.parseint 로 숫자로 타입 변경해야 함
+        * readonly : 값 변경 불가
+        
+        1-1. type 에 적는 것이 속성, name과 id 명은 동일하게 주는 것이 좋음!
+            <label for="id명" + 끝지점에 </label>
+        1-2. maxlength : 입력 제한 -> size 는 웹 크기마다 다르기 때문에 (보여지는 것), maxlength="" 를 꼭 주기!
+        1-3. value : 초기값 지정
+        1-4. placeholder : 내용입력하세요 메시지
+        1-5. autofocus : 화면 시작시, 시작될 커서 위치 설정
+        
+      -->
+      <b>텍스트박스(TextBox)</b><br/>
+      1-1. <label for="irum1">성명1</label> : <input type="text" name="irum1" id="irum1" /><br/>
+      1-2. 성명2 : <input type="text" name="irum2" id="irum2" size="3" maxlength="3" /><br/>
+      1-3. 성명3 : <input type="text" name="irum3" id="irum3" value="홍길동" /><br/>
+      1-4. 성명4 : <input type="text" name="irum4" id="irum4" placeholder="성명을 입력하세요" /><br/>
+      1-5. 성명5 : <input type="text" name="irum5" id="irum5" placeholder="성명을 입력하세요" autofocus /><br/>
+     </p>
+     <p>
+      <!-- 
+        2-1. type 에 적는 것이 속성, name과 id 명은 동일하게 주는 것이 좋음!
+        2-2. min, max로 숫자 제한
+        2-3. step : 묶음 단위
+      -->     
+      2-1. <label for="age1">나이1</label> : <input type="number" name="age1" id="age1" /><br/>
+      2-2. 나이2 : <input type="number" name="age2" id="age2" value="20" min="20" max="40" /><br/>
+      2-3. 수량 : <input type="number" name="age2" id="age2" value="5" min="5" max="100" step="5" /><br/>
+     </p>
+     <p>
+      3. 비밀번호 : <input type="password" name="pwd" id="pwd" />
+     </p>
+     <p>
+      4. 생일 : <input type="date" name="birthday" id="birthday" /><br/>
+      5. 창립일 : <input type="date" name="birthday2" id="birthday2" value="2022-10-31" readonly /><br/>
+      6. 출근시간 : <input type="time" name="time1" id="time1" value="09:10" /><br/>
+      7. 출근시간 : <input type="time" name="time2" id="time2" value="09:10" readonly /><br/>
+      8. 출근시간 : <input type="datetime-local" name="time3" id="time3" /><br/>
+      9. 출근시간 : <input type="datetime-local" name="time4" id="time4" value="2022-11-05T15:30" /><br/>
+     </p>
+     <p>
+     <!-- 
+        radio 그룹
+        -> name을 동일하게 하면 그룹화 자동 생성!
+        but, id는 동일명 사용 불가!!! (name과 이름이 달라짐!!!)
+        value는 서버에 넘어가는 이름이며, <> 밖의 문자는 웹에 표시되는 이름
+      -->  
+      - 라디오버튼(그룹처리 후 사용! 기본선택 : checked)<br/>
+      성별 : 
+      <input type="radio" name="gender" id="gender1" value="male" checked />남자
+      <input type="radio" name="gender" id="gender2" value="female" />여자
+     </p>
+     <p>
+     <!-- 
+      checkbox 그룹
+      radio 그룹과 동일하게 그룹화 됨!
+      but, 중복체크 되기 때문에 서버에 "배열"로 넘어감!!! 
+      -->  
+      - 체크박스(그룹처리 후 사용! 기본선택 : checked)<br/>
+      취미 : 
+      <input type="checkbox" name="hobby" id="hobby1" value="등산" />등산
+      <input type="checkbox" name="hobby" id="hobby2" value="등산" />등산
+      <input type="checkbox" name="hobby" id="hobby3" value="등산" />등산
+      <input type="checkbox" name="hobby" id="hobby4" value="등산" />등산
+      <input type="checkbox" name="hobby" id="hobby5" value="등산" />등산
+      <input type="checkbox" name="hobby" id="hobby6" value="등산" />등산
+     </p>
+     <p>
+      <!-- 
+      combobox 그룹
+      input X -> select !!! 
+      -->  
+      - 콤보상자(combobox) : 기본크기(size)는 1, 기본선택 : selected<br/>
+      좋아하는 산 : 
+      <select name="mnt">
+        <option value="백두산">백두산</option>
+        <option value="한라산">한라산</option>
+        <option value="지리산" selected>지리산</option>
+        <option value="태백산">태백산</option>
+        <option value="소백산">소백산</option>
+        <option value="북한산">북한산</option>
+      </select>
+     </p>
+     <p>
+      <!-- 
+      listbox
+      select size="5"
+      multiple : 중복선택가능 -> 서버에 배열로 넘어감
+      -->  
+      - 리스트박스(listbox) : 콤보박스에 기본크기(size) 5, 기본선택 : selected<br/>
+      좋아하는 산 : 
+      <select name="mnt2" size="5" multiple>
+        <option value="백두산">백두산</option>
+        <option value="한라산">한라산</option>
+        <option value="지리산">지리산</option>
+        <option value="태백산">태백산</option>
+        <option value="소백산">소백산</option>
+        <option value="북한산">북한산</option>
+        <option value="월악산">월악산</option>
+        <option value="부모산">부모산</option>
+        <option value="설악산">설악산</option>
+        <option value="속리산">속리산</option>
+      </select>
+     </p>
+     <p>
+     <!-- 
+      textarea 메모 형식
+      <textarea></textarea> 처음과 끝 존재
+      rows="" : 메모형식이라서 크기지정 필수
+      129행과 130행 중에 선택해서 사용해야 함!
+      129행 : placeholder는 임시메시지이므로 서버X
+      130행 : "성명"은 value 로 인식해서 기본값으로 서버에O
+      -->  
+      메모형식 : textarea<br/>
+      자기소개<br/>
+      <textarea rows="5" name="content1" id="content1" placeholder="자기소개"></textarea>
+      <textarea rows="5" name="content2" id="content2" placeholder="자기소개">성명</textarea> 
+     </p>
+     <p>
+      색상선택 : <input type="color" name="color" />
+     </p>
+     <p>
+     <!-- HTML5에서 추가된 구성 (메일주소, 검색기) -->
+      메일주소 : <input type="email" name="email" value="yam.h29@daum.net" />
+     </p>
+     <p>
+      검색기 : <input type="search" name="search" />
+     </p>
+     <p>
+     <!-- 첨부파일은 서버에 저장됨 -->
+      첨부파일 : <input type="file" name="file" />
+     </p>
+     <hr/>
+     <p>
+      - 옵션그룹<br/>
+      <select name="class">
+        <optgroup label="공과대학">
+          <option>컴퓨터공학과</option> <!-- <option value=""> value 생략가능. but, 웬만하면 생략X-->
+          <option>토목공학과</option>
+          <option>건축공학과</option>
+          <option>기계공학과</option>
+        </optgroup>
+        <optgroup label="인문대학">
+          <option>사학과</option>
+          <option>어문학과</option>
+          <option>철학과</option>
+        </optgroup>
+      </select>
+     </p>
+     <p>
+      - 사용량(meter) : 전체 100%에서 사용된 양 표시! 여기서는 30%를 사용했다면?
+      <meter value="30" min="0" max="100"></meter><br/>
+      - 사용량 : 전체 200%에서 30%를 사용했다면?
+      <meter value="30" min="0" max="200"></meter><br/>
+      - 최소사용량은 50% 이고, 최대사용량이 100% 일 때, 전체사용량은 200%라고 가정하고, 현재 사용량이 130%라면?
+      <meter value="130" min="0" max="200" low="50" high="100"></meter><br/>
+     </p>
+     <p>
+      - 범위 : range<br/>
+        소리크기1 : <input type="range" name="volumn" /><br/>
+        소리크기2 : <input type="range" name="volumn" value="30" min="0" max="100" /><br/>
+        소리크기3 : <input type="range" name="volumn" value="30" min="0" max="100" step="20" /><br/> <!-- 단계로 볼륨크기 조절 -->
+     </p>
+     <p>
+      - 진행상황 : progress<br/>
+        진행중 : <progress></progress><br/>
+        진행후 10초 경과(100초 기준) : <progress value="10" max="100"></progress><br/>
+     </p>
+    </form>
+  </body>
+</html>

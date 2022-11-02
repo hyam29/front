@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5.html</title>
+  <style>
+    .item{
+      width: 100px;
+      height: 600px;
+      border: 1px solid black;
+      margin: 10px;
+      color: white;
+    }
+    .container{
+      height: 100vh; /*view port 100% 설정 (뷰포트 전체를 사용하겠다)*/
+      display: flex; /*플렉스 박스 설정을 알림*/
+      flex-flow: row nowrap; /*container item들을 한줄에 담을 수 없을 때, 줄바꿈 처리유무 결정! (기본-줄바꿈X(row nowrap)) wrap(줄바꿈), wrap-reverse(역방향 줄바꿈)*/ 
+    }
+
+    /*각각의 개별항목에 따른 수직정렬 처리(크기는 1:2:1 의 비율을 유지)*/
+    /*글내용의 출력 순서는 2번->3번->1번 순으로 출력한다 => order 사용*/
+    .item:nth-child(1){
+      flex: 1;
+      text-align: center;
+      padding: 40px 0 0;
+      height: 160px; /*float라면, 아래로 내려감... <-?*/
+      align-self: flex-start; /*align-self: 개별 정렬 / flex-start: 위쪽정렬*/
+      order: 3;
+    }
+    .item:nth-child(2){
+      flex: 2;
+      text-align: center;
+      align-self: flex-end; /*아래쪽 정렬*/
+      order: 1;
+    }
+    .item:nth-child(3){
+      flex: 1;
+      text-align: center;
+      align-self: center; /*수직 중앙정렬*/
+      order: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"> <!--'플랙스 컨테이너'라고 부름-->
+    <!--61~70행: '플렉스 아이템'이라고 부름-->
+    <div class="item" style="background-color:#344765">1. 안녕하세요</div> 
+    <div class="item" style="background-color:#4F6188">2. 안녕하세요</div> 
+    <div class="item" style="background-color:#939499">3. 안녕하세요</div> 
+    <!-- <div class="item" style="background-color:#BBC8CA">4. 안녕하세요</div> 
+    <div class="item" style="background-color:#D4B8B6">5. 안녕하세요</div> 
+    <div class="item" style="background-color:#AC536D">6. 안녕하세요</div> 
+    <div class="item" style="background-color:#EEE4BD">7. 안녕하세요</div> 
+    <div class="item" style="background-color:#E6D7A5">8. 안녕하세요</div> 
+    <div class="item" style="background-color:#BFC9AB">9. 안녕하세요</div> 
+    <div class="item" style="background-color:#B89E93">10. 안녕하세요</div>  -->
+  </div>
+</body>
+</html>

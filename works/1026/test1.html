@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <title>표태그 연습</title>
+  </head>
+  <body>
+    <h2>테이블 연습</h2>
+    <!--
+      테이블(표) TAG : <table> ~~~~ </table>
+      행 : <tr> ~~~ </tr>
+      열 : <td> ~~~ </td>
+      * 테이블 기본 구조 *
+      <table>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    -->
+    <br/>
+    <h2>길동이네 가족소개 1</h2>
+    <table border> <!-- border : 테이블 선 -->
+      <tr>
+        <td>관 계</td>
+        <td>성 명</td>
+        <td>직 업</td>
+      </tr>
+      <tr>
+        <td>아버지</td>
+        <td>홍장군</td>
+        <td>군 인</td>
+      </tr>
+      <tr>
+        <td>어머니</td>
+        <td>김말숙</td>
+        <td>회사원</td>
+      </tr>
+    </table><br/>
+    <h2>길동이네 가족소개 2</h2>
+    <table border width="300px" height="250px">
+      <tr>
+        <td align="center">관 계</td> <!-- align="center" : 40행 = 41행 -->
+        <td><p align="center">성 명</p></td>
+        <td>직 업</td>
+      </tr>
+      <tr align="center">
+        <td>아버지</td>
+        <td>홍장군</td>
+        <td>군 인</td>
+      </tr>
+      <tr>
+        <td>어머니</td>
+        <td>김말숙</td>
+        <td>회사원</td>
+      </tr>
+    </table><br/>
+    <h2>길동이네 가족소개 3</h2>
+    <!-- 
+      테이블 가운데 정렬
+      cellpadding="px" : 표 내부 여백
+      <caption></caption> : 표 따라다니는 표제목 (상위 표시 디폴트)
+        align="bottom" 로 표 밑으로 내릴 수 있음
+     -->
+    <table border align="center" cellpadding="20px" background="../../images/3.jpg">
+      <caption><b>길동이네 <font size="5" color="skyblue"> 가족</font>을 소개합니다.</b></caption>
+      <tr>
+        <td>관 계</td>
+        <td bgcolor="pink">성 명</td>
+        <td>직 업</td>
+      </tr>
+      <tr bgcolor="#ff0">
+        <td>아버지</td>
+        <td><i>홍</i>장군</td>
+        <td>군 인</td>
+      </tr>
+      <tr>
+        <td>어머니</td>
+        <td>김<sup>말</sup>숙</td>
+        <td>회<sub>사</sub>원</td>
+      </tr>
+      <caption align="bottom"><b>길동이네 <font size="5" color="orange"> 집</font>에 놀러오세요!</b></caption>
+
+    </table><br/>
+    <h2>길동이네 가족소개 4</h2>
+    <!-- 
+      <table border bgcolor="pink">
+      text="white" 안먹힘! body만 됨 
+    -->
+    <!--
+      border="px" : 외곽선과 내곽선 사이 간격
+      cellpadding 은 표 내부의 공백간격
+      cellspacing="px" : 내곽선과 표 사이 간격
+    -->
+    
+    <table border="10px" bordercolor="skyblue" cellpadding="20px" cellspacing="10px">
+      <tr>
+        <td>관 계</td>
+        <td>성 명</td>
+        <td>직 업</td>
+      </tr>
+      <tr>
+        <td>아버지</td>
+        <td>홍장군</td>
+        <td>군 인</td>
+      </tr>
+      <tr>
+        <td>어머니</td>
+        <td>김말숙</td>
+        <td>회사원</td>
+      </tr>
+    </table><br/>
+    <h2>길동이네 가족소개 5</h2>
+    <table border="0px" cellpadding="15px" cellspacing="0px">
+      <tr bgcolor="pink">
+        <td>관 계</td>
+        <td>성 명</td>
+        <td>직 업</td>
+      </tr>
+      <tr bgcolor="skyblue">
+        <td>아버지</td>
+        <td>홍장군</td>
+        <td>군 인</td>
+      </tr>
+      <tr bgcolor="violet">
+        <td>어머니</td>
+        <td>김말숙</td>
+        <td>회사원</td>
+      </tr>
+    </table>
+    <h2>길동이네 가족소개 6</h2>
+    <!--
+      colspan="숫자" : 행 병합 (병합할 시작점에 꼭 적어야 함)
+      rowspan="숫자" : 열 병합 (상동)
+      <th></th> : TableHeader 행 제목 글씨 굵게
+    -->
+    <table border="1px" cellpadding="30px" cellspacing="0px">
+      <!-- <tr align="center"> -->
+      <tr bgcolor="pink">
+        <th>관 계</th>
+        <!-- <td>직 업</td> -->
+        <th colspan="2">성 명/직 업</th>
+        <th>비 고</th>
+      </tr>
+      <tr>
+        <td rowspan="2">부모</td>
+        <td>홍장군</td>
+        <td>군 인</td>
+        <td rowspan="2"><a href="../../images/2.jpg" target="_blank" title="우리집강아지 복실이입니다."><img src="../../images/2.jpg" width="100px" /></a></td>
+      </tr>
+      <tr>
+        <!-- <td>어머니</td> -->
+        <td>김말숙</td>
+        <td>회사원</td>
+        <tr>
+          <td colspan="4" align="center">놀러오세요!</td>
+        </tr>
+      </tr>
+    </table>
+    
+    <br/>
+    <h2>길동이네 가족소개 7</h2>
+    <figure>
+      <figcaption>길동이와 함께 즐거운 생활을...</figcaption>
+      <table border> <!-- border : 테이블 선 -->
+        <tr>
+          <td>관 계</td>
+          <td>성 명</td>
+          <td>직 업</td>
+        </tr>
+        <tr>
+          <td>아버지</td>
+          <td>홍장군</td>
+          <td>군 인</td>
+        </tr>
+        <tr>
+          <td>어머니</td>
+          <td>김말숙</td>
+          <td>회사원</td>
+        </tr>
+      </table>
+    </figure>
+    <br/><br/>
+  </body>
+</html>
