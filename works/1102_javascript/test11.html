@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test11.html</title>
+  <script>
+    'use strict';
+
+    function msg1(){
+      let su1 = prompt("수1를 입력하세요"); /*prompt : 입력창 메세지 뜸*/
+      document.write("<br/>su1 : ", su1); 
+      let ans = confirm("작업을 계속 하시겠습니까?") /*예: true, 아니오:false*/
+      document.write("<br/>ans : " , ans)
+      // if(ans == true){ 
+      if(ans){ /*17행과 동일 의미 (java와 동일)*/
+        alert("작업을 계속합니다.");
+      }
+      else{
+        alert("수고하셨습니다.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>메세지를 통한 값의 입력</h2>
+  <p>값을 입력해보세요
+    <input type="button" value="값입력" onclick="msg1()" />
+  </p>
+</body>
+</html>

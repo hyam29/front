@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test14.html</title>
+  <script>
+    'use strict';
+
+    function add() {
+      let su1 = document.myform.su1.value;
+      let su2 = myform.su2.value;
+      let add = parseInt(su1) + parseInt(su2);
+      alert("계산값 : " + add)
+      console.log("add : " + add);
+      // myform.submit();
+    }
+    function sub() {
+      let su1 = document.myform.su1.value;
+      let su2 = myform.su2.value;
+      let sub = parseInt(su1)-parseInt(su2);
+      alert("계산값 : " + sub)
+      console.log("sub : " + sub);
+      // myform.submit();
+    }
+    function mul() {
+      let su1 = document.myform.su1.value;
+      let su2 = myform.su2.value;
+      let mul = parseInt(su1) * parseInt(su2);
+      alert("계산값 : " + mul)
+      console.log("mul : " + mul);
+      // myform.submit();
+    }
+    function div() {
+      let su1 = document.myform.su1.value;
+      let su2 = myform.su2.value;
+      let div = parseFloat(su1) / parseFloat(su2);
+      alert("계산값 : " + div)
+      console.log("div : " + div);
+      // myform.submit();
+    }
+
+  </script>
+</head>
+<body>
+  <h2>사칙연산 계산하기</h2>
+  
+  <form name="myform" method="get" action="#">
+    <p>첫번째 수? <input type="number" name="su1" required /></p>
+    <p>두번째 수? <input type="number" name="su2" autofocus required /></p>
+    <input type="button" value="덧셈" onclick="add()" />
+    <input type="button" value="뺄셈" onclick="sub()" />
+    <input type="button" value="곱셈" onclick="mul()" />
+    <input type="button" value="나누기" onclick="div()" />
+    <input type="reset" value="다시입력" />
+    <!-- <input type="submit" value="submit" /> -->
+  </form>
+</body>
+</html>
