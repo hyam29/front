@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>익명함수 (프론트실무 70% 이상 익명함수로 사용)</title>
+  <!--
+    익명함수는 왜 사용?
+    함수는 호출 시, 한번 사용하고 끝
+
+    익명함수는 변수이므로 호출 시, 
+    또 다른 환경이 추가됐을 때 추가된 환경을 또 적용 가능!
+    ex) atom 환경을 적용했다가, MBC 환경을 적용할 수 있음
+  -->
+</head>
+<body>
+  <h2>익명함수(Anonymous Function)</h2>
+  <p>
+    <input type="button" value="일반함수연습" onclick="fCheck1()" />
+    <input type="button" value="익명함수연습" onclick="fCheck2()" />
+  </p>
+  <hr/>
+  <div id="demo"></div>
+
+  <script>
+    'use strict';
+    let cnt = 0;
+    function fCheck1() {
+      cnt++;
+      demo.innerHTML = "이곳은 일반함수입니다. (cnt=<font color='red'><b>"+cnt+"</b></font>)";
+    }
+    
+    //익명함수 호출(함수명이 없는 함수) => let 변수(=작성된함수명개념으로변수명그대로작성) = function () { }
+    let fCheck2 = function () {
+      cnt++;
+      demo.innerHTML = "이곳은 익명함수입니다. (cnt=<font color='blue'><b>"+cnt+"</b></font>)";
+    }
+
+    fCheck1(); // 일반함수 : 내용출력 위해서 /body 위로 스크립트 위치 변경
+    fCheck2(); // 익명함수 : 함수명을 부르듯 변수명을 작성
+  </script>
+</body>
+</html>

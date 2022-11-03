@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test18_2.html</title>
+  <title>test18_3.html</title>
   <script>
     'use strict';
     function fCheck() {
@@ -12,8 +12,16 @@
 
       /*값 불러오기*/
       let gender;
-      if(document.getElementById("gender1").checked) gender = "남";
-      if(document.getElementById("gender2").checked) gender = "여";
+      // if(document.getElementById("gender1").value == 'man') {
+      // gender = '남';
+      // }
+      // if(document.getElementById("gender2").value == 'woman') {
+      //   gender = '여';
+      // } /*이렇게 하면 안됨 왜냐면, (gender1,2)로 고정한 거니까*/
+
+      /*name이 동일하므로 배열로 값이 넘어옴! 따라서, [] 사용*/
+      if(document.getElementsByName("gender")[0].checked) gender = "남";
+      if(document.getElementsByName("gender")[1].checked) gender = "여";
       
       /*값 출력하기*/
       if(gender == '남') {

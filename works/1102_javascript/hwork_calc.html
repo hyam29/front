@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hwork_calc</title>
+  <script>
+    'use restrict';
+    let su1=0;
+    let su2=0;
+    let res=0;
+    let sw = true;
+    let reset;
+    let cal;
+
+    demo.innerText=su1;
+
+    function input(num) {
+      if(sw == true) {
+        if(su1==0 && num!=0){
+          su1=num;
+          demo.innerText=su1;
+        }
+        else {
+          su1=(su1*10) + num
+          demo.innerText=su1;
+        }
+      }
+      else {
+        if(su2==0 && num!=0){
+          su2=num;
+          demo.innerText=su2;
+        }
+        else {
+          su2 = (su2*10) + num
+          demo.innerText = su2;
+        }
+      }
+    }
+
+    function add() {
+      sw = false;
+      cal = 1;
+    }
+    function sub() {
+      sw = false;
+      cal = 2;
+    }
+    function mul() {
+      sw = false;
+      cal = 3;
+    }
+    function div() {
+      sw = false;
+      cal = 4;
+    }
+
+    function calc() {
+      if(cal==1) {res=su1+su2}
+      if(cal==2) {res=su1-su2}
+      if(cal==3) {res=su1*su2}
+      if(cal==4) {res=su1/su2}
+      demo.innerText=res;
+      sw=true;
+      su1=0;
+      su2=0;
+    }
+
+    function clear() {
+      su1=0;
+      su2=0;
+      demo.innerText="";
+    }
+    
+  </script>
+  <style>
+    .container {
+      width: 220px;
+      height: 350px;
+      background-color: lightslategray;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      justify-items: center;
+      align-items: center;
+      margin: 0px;
+    }
+    #demo {
+      width: 210px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      margin: 5px;
+      grid-column: 1/5;
+      padding: 0px;
+      text-align: right;
+      font-size: 1.5em;
+    }
+
+    .btn {
+      width: 50px;
+      height: 50px;
+      margin: 0px;
+    }
+
+  </style>
+</head>
+<body>
+  <form name="myform" method="get" action="#">
+    <div class="container">
+      <div id="demo" style="background-color:#344765"></div>
+      <p>
+        <div><input type="button" value="7" onclick="input(7)" class="btn"></div>
+        <div><input type="button" value="8" onclick="input(8)" class="btn"></div>
+        <div><input type="button" value="9" onclick="input(9)" class="btn"></div>
+        <div><input type="button" value="*" onclick="mul()" class="btn" /></div>
+        <div><input type="button" value="4" onclick="input(4)" class="btn" /></div>
+        <div><input type="button" value="5" onclick="input(5)" class="btn" /></div>
+        <div><input type="button" value="6" onclick="input(6)" class="btn" /></div>
+        <div><input type="button" value="/" onclick="div()" class="btn" /></div>
+        <div><input type="button" value="1" onclick="input(1)" class="btn" /></div>
+        <div><input type="button" value="2" onclick="input(2)" class="btn" /></div>
+        <div><input type="button" value="3" onclick="input(3)" class="btn" /></div>
+        <div><input type="button" value="-" onclick="sub()" class="btn" /></div>
+        <div><input type="button" value="+" onclick="add()" class="btn" /></div>
+        <!-- <div><input type="button" style="font-size: 1.5em" value="." onclick="input()" class="btn" /></div> -->
+        <div><input type="button" value="0" onclick="input(0)" class="btn" /></div>
+        <div><input type="button" value="AC" onclick="clear()" class="btn" /></div>
+        <div><input type="button" value="=" onclick="calc()" class="btn" /></div>
+      </p>
+    </div>
+  </form>
+</body>
+</html>

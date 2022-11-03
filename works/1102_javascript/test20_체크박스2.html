@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스연습2_for문</title>
+</head>
+<body>
+  <h2>체크박스 연습</h2>
+  <form name="myform">
+    <p><b>취미를 선택하세요</b><br/><br/>
+      <input type="checkbox" name="hobby" id="hobby1" value="등산" />등산 &nbsp;
+      <input type="checkbox" name="hobby" id="hobby2" value="낚시" />낚시 &nbsp;
+      <input type="checkbox" name="hobby" id="hobby3" value="볼링" />볼링 &nbsp;
+      <input type="checkbox" name="hobby" id="hobby4" value="바둑" />바둑 &nbsp;
+      <input type="checkbox" name="hobby" id="hobby5" value="수영" />수영 &nbsp;
+      <button type="button" onclick="fCheck()">출력</button>
+    </p>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+
+  <script>
+    'use strict';
+    /* 
+
+      fCheck와 fClear 모두 변수사용해야하니까, 전역변수로 선언위해 블럭 밖으로 빼내줌(33행) 
+      -> 수행X (문법 문제는 X)
+      clg로 찍어보면 hobbyCount가 0이 됨. -> 스크립트 위치 문제
+      따라서, 위에 있던 스크립트를 바디 바로 위로 옮겨서, 본문을 모두 읽어낸 이후 스크립트 읽을 수 있도록 위치 이동
+      
+    */
+
+    let hobbyCount = document.getElementsByName("hobby").length; // 코드길이가 기니까 변수로 주는 게 좋음
+    
+    function fCheck() {
+      console.log("hobbyCount : " + hobbyCount); //오류확인을 위해 콘솔창에 찍어보려고 작성
+      let hobby = ''; // 누적을 위한 변수 선언
+      for(let i=0;i<hobbyCount; i++) {
+        if(document.getElementsByName("hobby")[i].checked) {
+          hobby += document.getElementsByName("hobby")[i].value + "/";
+        }
+      }
+      hobby = hobby.substring(0,hobby.length-1);
+      demo.innerHTML = hobby + " <input type='button' value='지우기' onclick='fClear()'/>";
+    }
+    
+    function fClear() {
+      // let hobbyCount = document.getElementsByName("hobby").length;
+      for(let i=0;i<hobbyCount; i++) {
+        document.getElementsByName("hobby")[i].checked = false;
+      }
+      demo.innerText = "";
+    }
+  </script>
+</body>
+</html>
