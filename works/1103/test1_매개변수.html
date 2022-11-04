@@ -16,12 +16,15 @@
     }
     
     const stringSu = '100';
-    const numberSu = 200;
+    const numberSu = 100; // 타입 비교(===)시에는 numberSu를 '200'으로 바꿔주기
     
     /*parseInt는 덧셈때만 해주면 됨! *, / 는 해당 X*/
     function fCheck3() {
-      domo.innerText = "stringSu = " + stringSu + " , numberSu = " + numberSu;
-      domo.innerText = "stringSu = "+typeof(stringSu)+" , numberSu = " + typeof(numberSu);
+      // domo.innerText = "stringSu = " + stringSu + " , numberSu = " + numberSu;
+      demo.innerText = "stringSu = "+stringSu+" , numberSu = " + numberSu;
+      // domo.innerText = "stringSu = "+typeof(stringSu)+" , numberSu = " + typeof(numberSu);
+      demo.innerText = "stringSu = "+typeof(stringSu)+" , numberSu = " + typeof(numberSu);
+
       if(stringSu == numberSu) {
         demo.innerText = "두 변수의 값은 같다.";
       }

@@ -29,12 +29,45 @@
     console.log("arr2배열의 마지막 요소 : " + arr2[arr2.length-1]);
     console.clear();
 
-    // JS 에서의 향상된 for문 : for( of )
+    // JS 에서의 향상된 for문 : for(let 변수명 of 배열명) {}
     let cnt = 0;
     for(let arr of arr2) {
       console.log("arr["+cnt+"] = "+arr);
       cnt++;
     }
+    console.clear();
+
+    /* 
+      forEach문을 이용한 반복 출력 : 객체명.forEach(function() {});
+      처리속도 : map > forEach > 향상된 for문 > 배열
+
+      수행내용을 forEach문 괄호에 넣는데, 수행내용은 기능이므로 function 익명함수 사용
+      fuction 괄호 안에는 : (객체(arr2)가 던져주는 요소명(arr)을 적어줌)
+    */
+
+    // arr.2.forEach(function(arr, index(생략가능, 예약어X=>i라고 적어도 됨), array(생략가능, 객체명)) {});
+
+    arr2.forEach(function() {
+      console.log("값 : " + "/");
+    });
+    console.log("============================");
+    arr2.forEach(function (arr) {
+      console.log(arr + "/");
+    });
+    
+    // 익명함수를 Arrow 함수로 변형해보자!
+    console.log("----------------------------");
+    arr2.forEach((arr) => {
+      console.log(arr + "/");
+    });
+
+    // 익명함수를 Arrow 함수로 변형해보자! -> 수행내용이 한줄일 때, {} 생략!
+    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    arr2.forEach((arr) => console.log(arr + "/"));
+
+    // 익명함수를 Arrow 함수로 변형해보자! -> 수행내용이 한줄일 때, {} 생략!
+    console.log("////////////////////////////");
+    arr2.forEach((arr,index) => console.log(index + ":" + arr + "/"));
   </script>
 </head>
 <body>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test8.html</title>
+  <script>
+    'use strict';
+
+    function regexCheck() {
+      let mid = document.getElementById("mid").value;
+      let pwd = document.getElementById("pwd").value;
+      let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+      let email = document.getElementById("email").value;
+
+      // 아이디는 영문소문자, 대문자, 숫자, 밑줄만 사용가능하도록 하세요.
+      let regMid = /\w/g; 
+      let regName = /[A-Za-z가-힣]{2,20}/g; // 성명은 한글, 영문만 가능하도록! 길이는 2글자~20글자 까지
+      let regTel = /(\d{2,3})-(\d{3,4})-(\d{4})/g; // 전화번호 형식에 맞도록 체크하세요 (ex)지역번호-국번-전화번호)
+      let regEmail = /(\w)@(\w)\.(\w)/g; // 이메일 형식에 맞도록 체크 (ex) a@b.c)
+      
+      /*유효성검사*/
+      if(mid.trim() == "") {
+        alert("아이디를 입력해주세요.")
+        document.getElementById("mid").focus();
+        return;
+      }
+      if(!regMid.test(mid)) {
+        alert("아이디형식이 맞지 않습니다. 영문 대/소문자와 숫자 _만 가능합니다!")
+        document.getElementById("mid").focus();
+        return;
+      }
+      if(pwd.trim() == "") {
+        alert("비밀번호를 입력해주세요.")
+        document.getElementById("pwd").focus();
+        return;
+      }
+      if(name.trim() == "") {
+        alert("성명을 입력해주세요.")
+        document.getElementById("name").focus();
+        return;
+      }
+      if(!regName.test(name)) {
+        alert("성명은 길이 2~20자의 한글, 영문만 입력가능합니다!")
+        document.getElementById("name").focus();
+        return;
+      }
+      if(!phone.trim() == "") {
+        if(!regTel.test(phone)) {
+        alert("전화번호 형식은 '02(0)-123(4)-5678' 입니다!")
+        document.getElementById("phone").focus();
+        return;
+        }
+      }
+      if(!email.trim() == "") {
+        if(!regEmail.test(email)) {
+          alert("이메일 형식이 올바르지 않습니다!")
+          document.getElementById("email").focus();
+          return;
+        }
+      }
+      alert("회원가입이 완료되었습니다. 반갑습니다.")
+  }
+  </script>
+  
+</head>
+<body>
+  <form name="myform" method="get" action="#">
+    <fieldset>
+      <legend>회 원 가 입</legend>
+      <table border cellpadding="10px" cellspacing="0px" width="400px" bgcolor="#ccf">
+        <tr>
+          <td>
+            아이디
+          </td>
+          <td>
+            <input type="text" name="mid" id="mid" placeholder="영문, 숫자, _ 만 입력가능" required autofocus/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            비밀번호
+          </td>
+          <td>
+            <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            성 명
+          </td>
+          <td>
+            <input type="text" name="name" id="name" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            전화번호
+          </td>
+          <td>
+            <input type="text" name="phone" id="phone" placeholder="010-1234-5678" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            이메일
+          </td>
+          <td>
+            <input type="text" name="email" id="email" placeholder="abc@abc.com" />
+          </td>
+        </tr>
+      </table>
+      <div><br/> 
+        <input type="button" value="회원가입" onclick="regexCheck() " />
+        <input type="reset" value="취 소" />
+      </div>
+    </fieldset>
+  </form>
+</body>
+</html>
