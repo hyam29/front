@@ -21,7 +21,7 @@
     <p>min(숫자,변수명) : 최소값</p>
     <p>max(숫자,변수명) : 최대값</p>
     <p>random() : 난수</p>
-    <p>toFixed(n) : 소수이하를 n번째까지 출력</p>
+    <p>toFixed(n) : 소수이하를 n번째까지 자동 반올림 하여 출력됨</p>
 
   <script>
     'use strict';
@@ -50,12 +50,20 @@
     
     // 1~45까지의 난수
     num = Math.floor(Math.random() * 45) + 1; // = java
-    
-    // 1~5까지의 난수
-    // num = Math.floor(Math.random() * 5) + 1; // = java
 
+    // toFixed() : 소수 반올림
+    let su3 = 123.453; 
+    let su4 = -123.456; 
+    let su5 = 345.678; 
+    let su6 = -345.678; 
 
-    demo.innerText = num;
+    // num = su3.toFixed(2);
+    // num = su4.toFixed(1);
+    // num = su5.toFixed(1);
+    // num = su6.toFixed(1); // 음수일 때, 절대치의 개념으로 ceil과는 다르게 더 작은 쪽으로 반올림이 됨
+    num = Math.round(su6); // 음수일 때, 절대치의 개념으로 ceil과는 다르게 더 작은 쪽으로 반올림이 됨
+
+    demo.innerHTML = "결과 : <font color='red'><b>" + num + "</b></font>";
     </script>
 </body>
 </html>

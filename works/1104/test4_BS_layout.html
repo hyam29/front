@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부트스트랩 연습(레이아웃)</title>
+  <!--!아래 4줄(9행~12행) 있어야 부트스트랩 사용가능!-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <p><br/></p>
+  <!-- 아래 사용된 명령어들은 BS 명령어임...ㅠ CSS와는 다름!!! -->
+    <div class="container"> <!--부트스트랩에서 약속된 것! class / 디폴트: 80% container-->
+      <div class="row" style="height:100px"> <!--BS에서 약속된 행의 이름-->
+        <div class="col text-center" style="background-color: #ffc">가</div> <!--BS에서 약속된 열의 이름-->
+        <div class="col text-center" style="background-color: #ccf">나</div>
+        <div class="col text-center" style="background-color: #ecf">다</div>
+        <div class="col text-center" style="background-color: #fee">가</div> <!--BS에서 약속된 열의 이름-->
+        <div class="col text-center" style="background-color: #efe">나</div>
+        <div class="col text-center" style="background-color: #cff">다</div>
+      </div>
+      <div class="row" style="height:100px"> <!--BS에서 약속된 행의 이름-->
+        <div class="col-4 text-center" style="background-color: #fee">가</div> <!--BS에서 약속된 열의 이름-->
+        <div class="col-2 text-center" style="background-color: #ccf">나</div>
+        <div class="col-2 text-center" style="background-color: #ecf">다</div>
+        <div class="col-4 text-center" style="background-color: #ffc">라</div> <!--BS에서 약속된 열의 이름-->
+        <!--셀 병합은 row 나 col 의 총 갯수만 맞으면 됨!!!-->
+      </div>
+      <div class="row" style="height:300px">
+        <div class="col" style="background-color: #cff;">
+          <img src="../../images/1.jpg" alt="강알쥐" height=150px />
+        </div>
+        <div class="col">
+          <div class="row text-center" style="background-color: #ffc;">
+            <div class="col ml-0 pt-4">가 <!--m : margin p : padding-->
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </div>
+            <div class="col">나</div>
+          </div>
+          <div class="row text-center" style="background-color: #ccf;height:50px;">
+            <div class="col">다</div>
+            <div class="col">라</div>
+            <div class="col">마</div>
+          </div>
+          <div class="row text-center" style="background-color: #ecf;height:50px;">
+            <div class="col">바</div>
+            <div class="col">사</div>
+          </div>
+        </div>
+      </div>
+  <p><br/></p>
+</body>
+</html>

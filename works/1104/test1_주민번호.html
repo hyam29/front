@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주민번호생성기(체크기)</title>
+  <script>
+    'use strict';
+
+    /*주민번호 유효성 검사*/
+    function juCheck() {
+      let jumin1 = document.getElementById("jumin1").value;
+      // JS는 배열선언 하지 않아도, 문자열을 배열로 봄!!!
+      if(jumin1.length == 6) {
+        if(isNaN(jumin1)) {  // jumin1에 있는게 NaN(NonNumeric = 숫자가 아님)이야?
+          alert("숫자만 입력하세요.")
+          document.getElementById("jumin1").select(); // select(); = 입력된 값 블럭(범위를 둘러 싸줌)으로 만들어줌 (백스페이스 누르는 거 힘들까봐)
+          document.getElementById("jumin1").focus;
+        }
+        else {
+          document.getElementById("jumin2").focus();
+        }
+      }
+    }
+
+    function juminCheck() {
+      let jumin1 = document.getElementById("jumin1").value;
+      let jumin2 = document.getElementById("jumin2").value;
+      
+      if(jumin1.trim() == "" || jumin2.trim() == "" || jumin1.length !=6 || jumin2.length !=7) {
+        alert("주민번호를 정확하게 입력해주세요.")
+        document.getElementById("jumin1").focus();
+      }
+      else if(isNaN(jumin1)||isNaN(jumin2)) {
+        alert("주민번호는 숫자만 입력하세요.")
+        document.getElementById("jumin1").focus();
+      }
+      /* 주민번호 체크디짓(check digit) 체크 - 주민번호 마지막자리 체크 */
+      else {
+        const check = [2,3,4,5,6,7,8,9,2,3,4,5]; // 가중치 체크니까 배열로 작성, 계산해야하니까 문자X = 큰따옴표("")로 작성X
+        let jumin = jumin1 + jumin2; // 주민번호 12자리 붙이는 작업 (41행 각각 곱하면 안되니까)
+
+        let hap = 0;
+        for(let i=0; i<check.length; i++) {
+          hap += check[i] * jumin.charAt(i); // 배열 담긴 값 하나씩 꺼내기 위해서, 함수 charAt(); 사용
+        }
+
+        let na = hap % 11;
+        let checkDigit = 11 - na;
+
+        if(checkDigit >= 10) {
+          checkDigit = checkDigit % 10;
+        }
+
+        let res = "<font color = 'blue'><b>";
+        if(checkDigit == jumin.substring(jumin.length-1)) { // slice가 더 편함!
+          res += "주민번호가 일치합니다.";
+        }
+        else {
+          res += "<font color = 'red'><b>주민번호가 다릅니다. 혹시 ...?";
+        }
+        res += "</b></font>";
+        document.getElementById("demo").innerHTML = res;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>주민번호 체크</h2>
+  <p>주민번호 : 
+    <!--onkeyup : 6자리 모두 입력 완료 후 자동으로 두번째 자리 이동하게끔 함수 생성-->
+    <input type="text" name="jumin1" id="jumin1" size="6" maxlength="6" onkeyup="juCheck()" autofocus required /> -
+    <input type="password" name="jumin2" id="jumin2" size="7" maxlength="7" required />
+    <input type="button" value="주민번호체크" onclick="juminCheck()" />
+    <input type="reset" value="다시입력" />
+  </p>
+  <hr/>
+  <div id="demo"></div>
+</body>
+</html>

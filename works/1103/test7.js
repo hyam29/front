@@ -2,6 +2,7 @@
 
 function regexCheck() {
   //정규표현식 만들기
+  //정규표현식에서만 or가 | !!!!!!!! 나머진 ||
   const regex1 = /atom/gm; // 문자열이 포함되어 있다면? -> true, 없으면 false
   const regex2 = /mbc|kbs|sbs/g; // JS에서, or = | (java 에선, ||) / gs가 디폴트...
   const regex3 = /홍길(동|순)/g; // 홍길동, 홍길순이 있느냐?
