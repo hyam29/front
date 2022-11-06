@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행지예약_반응형과제</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a href="#" class="w3-bar-item w3-button w3-text-blue w3-hover-blue"><b><i class="fa fa-map-marker w3-margin-right"></i>SKYSCAN</b></a>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+  <img class="w3-image" src="images/main.jpg" alt="파리_베르사유궁전앞" width="1500" height="700">
+  <div class="w3-display-middle" style="width:65%">
+    <div class="w3-bar w3-black">
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>항공권</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>숙박</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>렌트카</button>
+    </div>
+
+    <!-- content -->
+    <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
+      <h3>저희와 함께 세계를 여행해요!</h3>
+      <div class="w3-row-padding" style="margin:0 -16px;">
+        <div class="w3-half">
+          <label><b>출발지</b></label>
+          <input class="w3-input w3-border" type="text" placeholder="Departing from">
+        </div>
+        <div class="w3-half">
+          <label><b>도착지</b></label>
+          <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+        </div>
+      </div>
+      <p><button class="w3-button w3-blue">항공권 탐색하기</button></p>
+    </div>
+
+    <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
+      <h3>최고의 호텔을 검색해보세요!</h3>
+      <p>SKYSCAN과 함께 호텔을 예약하고, 최고의 요금과 프로모션을 받으세요.</p>
+      <p><button class="w3-button w3-dark-grey">호텔 둘러보기</button></p>
+    </div>
+
+    <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
+      <h3>세계 최고의 렌터카를 검색합니다!</h3>
+      <p><span class="w3-tag w3-deep-orange">할인혜택</span> 오늘 예약 시 특별 할인 혜택: 전 세계 어디에서나 자동차 서비스 대여로 25% 할인!</p>
+      <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+      <p><button class="w3-button w3-dark-grey">예약 검색</button></p>
+    </div>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px;">
+
+  <!-- Good offers -->
+  <div class="w3-container w3-margin-top">
+    <h3>추천 여행지: 코타키나발루!</h3>
+    <h6>지금 예약시 <strong>50%</strong> 할인제공!</h6>
+  </div>
+  <div class="w3-row-padding w3-text-white w3-large">
+    <div class="w3-half w3-margin-bottom">
+      <div class="w3-display-container">
+        <img src="images/cotaMain.png"Cinque Terre" style="width:100%">
+        <span class="w3-display-bottomleft w3-padding">워터 프론트</span>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="images/cota2_1.png" alt="툰쿠 압둘 라만 해상공원" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">툰쿠 압둘 라만 해상공원</span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="images/cota2_2.png" alt="키나발루 산" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">키나발루 산</span>
+          </div>
+        </div>
+      </div>
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="images/cota2_3.png" alt="탄종 아루 비치" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">탄종 아루 비치</span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="images/cota2_4.png" alt="리카스 모스크" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">리카스 모스크</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explore Nature -->
+  <div class="w3-container">
+    <h3>SKYSAN과 함께하기!</h3>
+    <p>SKYSCAN과 함께 여행을 즐겨보세요!</p>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
+      <img src="images/tai.png" alt="대만" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3>대만</h3>
+        <p class="w3-opacity">왕복 $79</p>
+        <p>대만에서 식도락 여행을 즐겨보세요! 꼭 먹어봐야 할 것들을 추천해드립니다!</p>
+        <button class="w3-button w3-margin-bottom bnt-outline-danger">티켓 구매하기</button>
+      </div>
+    </div>
+    <div class="w3-half w3-margin-bottom">
+      <img src="images/viet.png" alt="베트남" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3>베트남</h3>
+        <p class="w3-opacity">편도 $39</p>
+        <p>새로운 휴양지로 떠나고 싶다면? 남서부 푸꾸옥(푸꿕)을 저희와 함께 떠나요!</p>
+        <button class="w3-button w3-margin-bottom bnt-outline-primary">티켓 구매하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tabs
+  function openLink(evt, linkName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("myLink");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+    }
+    document.getElementById(linkName).style.display = "block";
+    evt.currentTarget.className += " w3-blue";
+  }
+
+  // Click on the first tablink on load
+  document.getElementsByClassName("tablink")[0].click();
+</script>
+</body>
+</html>
