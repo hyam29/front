@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test13.html</title>
+  <style>
+    li {
+      list-style: none;
+      line-height: 30px;
+    }
+    a {
+      color: blue;
+      text-decoration: none; /*TEXT 밑줄 없애기*/
+    }
+    a:hover { /*마우스를 올렸을 때*/
+      color: pink;
+      text-decoration: underline;
+    }
+    a:active { /*마우스 누르는 순간 (실제 디자인에서는 사용하지 말기)*/
+      color: red;
+      text-decoration: overline;
+    }
+    .ap {
+      color: blue;
+      font-size: 25pt;
+      cursor: pointer; /*마우스커서모양: 손모양*/
+    }
+    .ap:hover {
+      color: pink;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>a 태그 속성변경</h2>
+  <div>
+    <ul>
+      <li><a href="https://www.naver.com">Naver</a></li>
+      <li><a href="https://www.daum.net">Daum</a></li>
+      <li><a href="https://www.imbc.com">MBC 방송국</a></li>
+      <li><a href="test12.html">test12문서</a></li>
+      <li><a href="../../images/1.jpg" target="_blank">강아지</a></li>
+    </ul>
+  </div>
+  <hr/>
+  <p class="ap">1.반응연습하기</p>
+  <p>2.반응연습하기</p>
+</body>
+</html>
