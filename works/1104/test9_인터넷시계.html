@@ -22,8 +22,14 @@
     }
     
     function clockStart() {
-      clock();
-      statusTime = setInterval(clock, 1000);
+      // setInterval 방법 (한줄이라 이게 더 편함)
+      statusTime = setInterval(clock, 1000); // 1초 후 clock() 함수를 호출
+
+      // setTimeout 방법
+      // clock();
+      // clearTimeout(statusTime);
+      // statusTime = setTimeout("clockStart()", 1000);
+
     }
 
     function clockStop() {

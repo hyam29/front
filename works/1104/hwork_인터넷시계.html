@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인터넷 시계</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+    let statusTime;
+    
+    function clock() {
+      let today = new Date();
+      let hh = today.getHours();
+      let mm = today.getMinutes();
+      let ss = today.getSeconds();
+
+      let strTime = hh + ":" + mm + ":" + ss;
+      let fmtTime = strTime.split(":");
+      hh = fmtTime[0];
+      mm = ('0' + fmtTime[1]).slice(-2)
+      ss = ('0' + fmtTime[2]).slice(-2)
+      // strTime = hh + ":" + mm + ":" + ss;
+      
+      let hhimg = "<img src='../../images/"+ hh.slice(0,1) + ".gif' />" + "<img src='../../images/" + hh.slice(1) + ".gif' />";
+      let mmimg = "<img src='../../images/"+ mm.slice(0,1) + ".gif' />" + "<img src='../../images/" + mm.slice(1) + ".gif' />";
+      let ssimg = "<img src='../../images/"+ ss.slice(0,1) + ".gif' />" + "<img src='../../images/" + ss.slice(1) + ".gif' />";
+
+      demo.innerHTML = hhimg + " : " + mmimg + " : " + ssimg;
+      // demo.innerHTML = strTime;
+    }
+    
+    function clockStart() {
+    statusTime = setInterval(clock, 1000);
+
+    }
+    function clockStop() {
+      clearInterval(statusTime);
+    }
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container" style="text-align:center">
+    <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+    </svg>
+    <h2><i>시계</i></h2>
+    </div><br/>
+    <p>
+      <input type="button" value="동작" onclick="clockStart()" class="btn btn-outline-primary">
+      <input type="button" value="정지" onclick="clockStop()" class="btn btn-outline-danger">
+    </p>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

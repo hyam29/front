@@ -76,27 +76,27 @@ function fCheck3() {
 
 // 오늘날짜(yyyy-mm-dd) 형식으로 꺼내는 함수
   function fCheck6() {
-    let year = document.getElementById("year").value;
-    let month = document.getElementById("month").value;
-    let str = new Date(year,month,0); // new Date(년,월,일,시,분,초)
-    let strDate = str.getFullYear() + "-";
+  //   let year = document.getElementById("year").value;
+  //   let month = document.getElementById("month").value;
+  //   let str = new Date(year,month,0); // new Date(년,월,일,시,분,초)
+  //   let strDate = str.getFullYear() + "-";
     
-    strDate += (str.getMonth()+1) + "-";
-    strDate += str.getDate();
+  //   strDate += (str.getMonth()+1) + "-";
+  //   strDate += str.getDate();
 
-    for(let i=1 ; i<10 ; i++) {
-      if (date == "i") { 
-        date = "0"+ i; 
-      }
-    }
+  //   for(let i=1 ; i<10 ; i++) {
+  //     if (date == "i") { 
+  //       date = "0"+ i; 
+      // }
+    // }
 
     /*선생님 방법*/
-    // let strDate = year + "-" + month + "-" + date;
-    // let fmtDate = strDate.split("-");
-    // let yy = fmtDate[0];
-    // let mm = ('0' + fmtDate[1]).slice(-2); // 2월 -> 02월 변경 : 02 -> 002 (뒤에서 2자리만 자르면 됨)
-    // let dd = ('0' + fmtDate[2]).slice(-2); // 2일 -> 02일 변경
-    // strDate = yy + "-" + mm + "-" + dd;
+    let strDate = year + "-" + month + "-" + date;
+    let fmtDate = strDate.split("-");
+    let yy = fmtDate[0];
+    let mm = ('0' + fmtDate[1]).slice(-2); // 2월 -> 02월 변경 : 02 -> 002 (뒤에서 2자리만 자르면 됨)
+    let dd = ('0' + fmtDate[2]).slice(-2); // 2일 -> 02일 변경
+    strDate = yy + "-" + mm + "-" + dd;
     demo.innerHTML = strDate;
   }
 
