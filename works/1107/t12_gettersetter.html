@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class(객체) getters/setters 사용 예제</title>
+  <script>
+    'use strict';
+
+    // 클래스 만들기
+    class Member {
+      // 필드명 (getter & setter 통해 값이 처리될 때, 필드를 선언하면 안됨)
+      // name;
+      // age;
+
+      // 생성자
+      constructor(name, age, color) {
+        this.name = name;
+        this.age = age;
+        this.color = color;
+      }
+
+      // getters 생성 + 호출 때 필요한 this. 뒤에 언더바(_) 추가
+      get name() {
+        return this._name; 
+      }
+      get age() {
+        return this._age;
+      }
+      get color() {
+        return this._color;
+      }
+
+      // setters 생성
+      set name(name) {
+        this._name = name;
+      }
+      set age(age) {
+        // this._age = age;
+        // this._age = (age < 1) ? 1 : age; // 삼항연산자
+        this._age = (age < 1) ? age * (-1) : age; // 삼항연산자
+      }
+      // 다중조건이니까, 삼항연산자 사용X if문이 나음
+      set color(color) {
+        if(color == "껌정" || color == "블랙" || color == "흑색" || color == "까망" || color == "깜정" ) {
+          this._color = "검정"
+        }
+        else {
+          this._color = color;
+        }
+      }
+    }
+
+    let member = new Member("홍길동", 25, "빨강");
+    console.log("성명 : " + member.name);
+    console.log("나이 : " + member.age);
+    console.log("좋아하는 색 : " + member.color);
+    let member2 = new Member("김말숙", -25, "깜정");
+    console.log("성명 : " + member2.name);
+    console.log("나이 : " + member2.age);
+    console.log("좋아하는 색 : " + member2.color);
+  </script>
+</head>
+<body>
+  <h2>클래스 연습(getters/setters)</h2>
+    <div>
+      사용목적<br/><br/>
+        1. 필드에 직접 접근을 막기 위해서 필드를 대신해 값을 저장하고, 읽어올 때<br/>
+        2. 유효성 검사<br/><br/>
+    </div>
+    <div>
+      getter & setter 사용시에는 필드명 선언 X!!!<br/>
+      -> 필드접근이 불가능함. 유효성검사 필요
+    </div>
+</body>
+</html>

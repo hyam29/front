@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>switch~case문</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    function fCheck() {
+      let jumsu = parseInt(document.getElementById("jumsu").value); // 입력받은 건 문자니까 parseInt 씌워줘야 함!
+      let jum = parseInt(jumsu / 10);
+      let grade;
+
+      switch(jum) {
+        case 100:
+        case 90: 
+          grade = 'A';
+          break;
+        case 80:
+          grade = 'B';
+          break;
+        case 70:
+          grade = 'C';
+          break;
+        case 60:
+          grade = 'D';
+          break;
+        default : 
+        grade = 'F';
+      }
+      document.write("입력된 점수 : " + jumsu + "<br/>");
+      document.write("학점 : "  + grade + "<br/>");
+      document.write("<input type='button' value='다시하기' onclick='location.reload()' class='btn btn-warning' /> ");
+      // 동일 form이 아니라서, document.write로 띄우는 창에는 BS가 안먹힘...! 따라서, demo or BS 링크를 document에도 작성해줘야 함
+    }
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>switch ~ case문 연습</h2>
+    <p>점수를 입력받아 학점을 출력하시오 (90점 이상:A ~ 60점 이하:F)</p>
+    <form name="myform">
+      <div class="form-group">
+        <div><label for="jumsu">점수</label></div>
+        <div>
+          <input type="number" name="jumsu" id="jumsu" value="0" min="0" class="form-control m-2" />
+          <input type="button" value="학점조회" onclick="fCheck()" class="btn btn-info form-control m-2" />
+        </div>
+      </div>
+    </form>
+    <p></p>
+  </div>
+  <p><br/></p>
+</body>
+</html>

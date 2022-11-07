@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열연습2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+    
+    let arr1 = [10, 8, 20, 15, 11, 17];
+
+    // 정렬 : sort(); : 문자형식으로 정렬!
+    let arr2 = arr1.sort();
+    console.log("1. 오름차순 정렬 : " + arr2); // 10, 11, 15, 17, 20, 8 로 정렬됨 (숫자형식X)
+    
+    // 역순 정렬 : reverse(); : 문자형식으로 내림차순 정렬!
+    let arr3 = arr1.reverse();
+    console.log("2. 내림차순 정렬 : " + arr3); // 8, 20, 17, 15, 11, 10 로 정렬됨 (숫자형식X)
+
+    // 최대/최소값 구하기 (숫자형식 값 출력)
+    let maxValue = Math.max(10, 8, 20, 15, 11, 17);
+    console.log("3. 최대값 : " + maxValue);
+    let minValue = Math.min(10, 8, 20, 15, 11, 17);
+    console.log("4. 최소값 : " + minValue);
+    
+    // 배열안에서의 최대값/최소값 구하기!
+    // DB에서 값 불러온 걸, 배열에 담아서 배열을 다시 max, min에 담아야 함
+    // maxValue = Math.max(arr3); 
+    // 33행 출력시, NaN 이라고 뜸... = 이거 숫잔지 모르겠어... (배열 안 숫자 아닌 콤마(,)도 들어가 있어서
+    // 따라서 ',' 도 인식해줘! = '...' 연산자 사용 => java에서도 동일)
+    maxValue = Math.max(...arr3);
+    console.log("5. 최대값 : " + maxValue); 
+    minValue = Math.min(...arr3);
+    console.log("5. 최소값 : " + minValue);
+
+
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>배열연습2</h2>
+    <hr/>
+  </div>
+  <p><br/></p>
+</body>
+</html>
