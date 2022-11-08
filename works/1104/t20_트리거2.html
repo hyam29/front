@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트리거</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+    let num1 = 0; // triger1 누적
+    let num2 = 0; // triger2 누적
+
+    function tClick1() {
+      demo1.innerHTML = ++num1;
+      if(num1 % 5 == 0) {
+        // document.getElementById("btn2").click();
+        // document.myform. 으로 접근해도 됨
+        tClick2(); // 19행 or 21행처럼 해도 됨
+      }
+    }
+    function tClick2() {
+      demo2.innerHTML = ++num2;
+      if(num2 % 10 == 0) {
+        document.getElementById("btn1").click();
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>트리거 연습</h2>
+    <p>
+      트리거1 버튼을 클릭할 때, num1의 값이 5의 배수가 되면 num2의 값을 1개 더 증가하고,<br/>
+      트리거2 버튼을 클릭할 때, num2의 값이 10의 배수가 되면 num1의 값을 1개 더 증가시키시오.<br/>
+    </p>
+    <form name="myform">
+      <p><input type="button" value="트리거1" name="triger1" id="btn1" onclick="tClick1()" class="btn btn-danger mt-2" /></p>
+      <p><input type="button" value="트리거2" name="triger2" id="btn2" onclick="tClick2()" class="btn btn-warning" /></p>
+      <hr/>
+    </form>
+    <div>demo1 : <div id="demo1"></div></div>
+    <div>demo2 : <div id="demo2"></div></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

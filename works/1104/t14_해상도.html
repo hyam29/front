@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해상도체크</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    function deviceCheck() {
+      let str = "";
+
+      // 현재 보고있는 모니터 화면(screen) 기준
+      // 20,21행만 알아도 됨,,,
+      str += "화면 해상도의 가로크기 : " + screen.width + "px<br/>";
+      str += "화면 해상도의 세로크기 : " + screen.height + "px<br/>"; 
+      str += "사용자 작업영역 가로크기 : " + screen.availWidth + "px<br/>"; 
+      str += "사용자 작업영역 세로크기 : " + screen.availHeight + "px<br/>"; 
+      str += "표현 가능 색상 수 : " + Math.pow(2,screen.colorDepth) + "<br/>"; // 제곱근 함수 사용으로 colorDepth 계산
+      str += "픽셀 당 색상 수 : " + Math.pow(2,screen.pixelDepth) + "<br/>"; // 제곱근과 픽셀 결과는 동일
+
+      demo.innerHTML = str;
+    }
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>screen객체를 이용한 모니터(Device)의 해상도 알아오기</h2>
+    <p><input type="button" value="해상도" onclick="deviceCheck()" class="btn btn-success m-3" /></p>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

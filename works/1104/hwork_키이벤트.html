@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>221108 키이벤트 과제</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+    let max;
+    let min;
+    let ranSu;
+    let userAns;
+
+    function randomSu() {
+      max = parseInt(document.getElementById("maxInput").value);
+      min = parseInt(document.getElementById("minInput").value);
+      ranSu = Math.floor(Math.random()*(max-min +1)) + min;
+      alert("난수가 생성되었습니다. 정답을 입력하세요!")
+      demo2.innerHTML = "컴퓨터가 생성한 난수는 '" + ranSu + "' 입니다!";
+    }
+
+    function userAnsBtn() {
+      userAns = document.getElementById("userAns").value;
+      
+      if(userAns == "") {
+        demo.innerHTML = "예상 정답을 입력하세요!!!";
+      }
+      else if(parseInt(userAns) == parseInt(ranSu)) {
+        demo.innerHTML = "정답 입니다 ^0^!!!";
+      }
+      else if(parseInt(userAns) < parseInt(ranSu)) {
+        demo.innerHTML = "난수가 더 큽니다.";
+      }
+      else if(parseInt(userAns) > parseInt(ranSu)) {
+        demo.innerHTML = "난수가 더 작습니다.";
+      }
+    }
+
+    function keyboardEvent(e) {
+      if(e.which == 38) {
+        userAns++;
+        document.getElementById("userAns").value = userAns;
+        userAnsBtn();
+      }
+      else if(e.which == 40) {
+        userAns--;
+        document.getElementById("userAns").value = userAns;
+        userAnsBtn();
+      }
+      if(e.which == 32) {
+        randomSu();
+      }
+    }
+
+    document.onkeydown = keyboardEvent;
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container" align="center">
+    <h4>범위를 지정하여<br/> 키보드 상(+1)하(-1) 방향키로 난수 값을 맞혀보세요!</h4>
+      <form name="myform">
+        <p>
+          <b>
+          최소값 : <input type="number" name="minInput" id="minInput" value="0" autofocus />&nbsp;&nbsp;
+          최대값 : <input type="number" name="maxInput" id="maxInput" />
+          </b>
+        </p>
+        <p><input type="button" value="난수생성" onclick="randomSu()" class="btn btn-outline-primary m-4" /><input type="button" value="난수재생성" onclick="randomSu()" class="btn btn-outline-danger m-4" /></p>
+        <hr/>
+        <p>
+        <input type="number" name="userAns" id="userAns" placeholder="예상 정답 숫자 입력"/> 
+        <input type="button" value="입력" onclick="userAnsBtn()" class="btn btn-outline-success m-4" />
+      </p>
+      <br/>
+      <div id="demo" style="color: blue; font-style: italic"></div><br/>
+      <em>생성된 난수를 확인하려면 바로 아래 부분을 마우스 드래그 하세요!</em>
+      <div id="demo2" style="color: #fff; font-style: italic"></div>
+    </form>
+  </div>
+  <p><br/></p>
+</body>
+</html>

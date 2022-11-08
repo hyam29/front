@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스 우클릭 방지</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    // 2ed. rightClick() 함수만들기
+    function rightClick(e) {
+      if(e.which != 1) { // which : 현재상황 -> != 1 : 정상이 아닐 때,
+        // alert("마우스 오른쪽 버튼은 사용할 수 없어요...")
+        return;
+      }
+    }
+    // rightClick 함수대로 하면 alert 없을때 오른쪽 마우스가 됨...
+    // 따라서, contextMenu 함수 만들어야 됨
+
+    // function contextMenu() {
+    //   return false;
+    // }
+
+    // 1st. 마우스 값 받아오기
+    // window에 값 넣을때는 위치 변경!!! (원래는 우항이 좌항에 담기는 것인데, window는 우항이 좌항에 담김)
+    // document.onmousedown = rightClick; // rightClick : 변수명=함수명
+    // 25행 : 창 어느곳에서나 적용됨 (윈도우)
+
+    // document.oncontextmenu = contextMenu;
+    document.oncontextmenu = function() {return false;} // 한줄이니까 이렇게 작성하면 됨!
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>마우스 오른쪽 버튼을 사용할 수 없습니다.</h2>
+    <p>
+      <input type="button" value="마우스좌클릭" onclick="alert('마우스 왼쪽 버튼을 클릭 ㅇ0ㅇ');" class="btn btn-warning m-3" />
+    </p>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

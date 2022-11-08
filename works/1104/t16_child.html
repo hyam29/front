@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새창(아이디중복체크창)_자식창</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    // 부모창에서 아이디 가져오기
+    function receiveMid() {
+      // opener : 나를 호출한 창 (부모창)
+      document.getElementById("mid").value = opener.document.getElementById("mid").value;
+    }
+
+    // 자신의 창에 적혀있는 아이디를 부모창으로 보내기
+    function sendMid() {
+      opener.document.getElementById("mid").value = document.getElementById("mid").value;
+    }
+
+    // 자신의 창닫기 (내꺼를 부모에게 값 전달 후 다음 입력(pwd) textbox에 커서 위치하기)
+    function winClose() {
+      // opener.document.getElementById("mid").value = document.getElementById("mid").value;
+      sendMid(); // =28행
+      opener.document.getElementById("pwd").focus();
+      window.close();
+    }
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>아이디중복체크창</h2>
+    <p>
+      아이디 : <input type="text" name="mid" id="mid" autofocus />
+    </p>
+    <p>
+      <input type="button" value="아이디가져오기" onclick="receiveMid()" class="btn-sm btn-success" />
+      <input type="button" value="아이디넘겨주기" onclick="sendMid()" class="btn-sm btn-secondary" />
+      <input type="button" value="창닫기" onclick="winClose()" class="btn-sm btn-danger" />
+    </p>
+  </div>
+  <p><br/></p>
+</body>
+</html>

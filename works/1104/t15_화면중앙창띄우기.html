@@ -4,28 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>setTimeout</title>
+  <title>화면중앙에 새창띄우기</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
     'use strict';
-    let num = 0;
 
-    //setInterval(함수명, 지연시간) 시간 지연시키기
-    function plus() {
-      num++;
-      demo.innerHTML = "1 증가"; 
-      setInterval(1000); // 1/1000초니까, 괄호안에 1000 넣어야 1초로 출력
-      demo.innerHTML = "<b>" + num + "</b>"; 
-      // 
-    }
-    function minus() {
-      num--;
-      demo.innerHTML = "1 감소"; 
-      setInterval(1000);
-      demo.innerHTML = "<b>" + num + "</b>"; 
+    function newWin() {
+      let url = "t15_child.html";
+      // let windowName = "t15_child";
+      let winWidth = 500;
+      let winHeight = 400;
+      let x = (screen.width/2) - (winWidth/2);
+      let y = (screen.height/2) - (winHeight/2);
+      let opt = "width=" +winWidth+ ",height="+winHeight+ ",left="+x+ ",top="+y;
+      window.open(url,"nWin", opt);
     }
 
   </script>
@@ -33,14 +28,13 @@
 <body>
   <p><br/></p>
   <div class="container">
-    <h2>setTimeout 함수</h2>
+    <h2>화면중앙에 새창띄우기(부모창)</h2>
+    <p>버튼을 클릭하면 화면 중앙에 가로 500px, 세로 400px 크기의 새창(t15_child.html)을 띄우시오.</p>
     <p>
-      <input type="button" value="증가" onclick="plus()">
-      <input type="button" value="감소" onclick="minus()">
-      <input type="button" value="정지" onclick="stop()">
+      <input type="button" value="중앙에새창띄우기" onclick="newWin()" class="btn btn-primary" />
     </p>
     <hr/>
-    <div id="demo">0</div>
+    <div id="demo"></div>
   </div>
   <p><br/></p>
 </body>

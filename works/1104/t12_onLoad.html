@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onLoad 이벤트처리(JQuery에서 많이 사용)</title>
+  <script>
+    'use strict';
+
+    // alert("1. 안녕하세요!!!") // 
+    function onLoadFunc() { // 실행: 1. 버튼누르기 / 2. body에 바로 onLoad="함수"작성
+      alert("2.환영합니다.");
+    }
+
+    function onunLoadFunc() { // 실행: 1.버튼 / 2.onunLoad는 body에 작성 시, 지금은 실행 X (막아뒀음!)
+      alert("3.떠나지마셔요...")
+      location.href="https://www.naver.com";
+    }
+
+  </script>
+</head>
+<body onload="onLoadFunc()" onunload="onunLoadFunc()">
+  <h2>onLoad이벤트처리</h2>
+  사이트에 들어가자마자 뜨는 알림창 같은 것<br/>
+  함수작성을 바로 script에 해도 됨<br/>
+  <input type="button" value="onLoad호출" onclick="onLoadFunc()" />
+  <input type="button" value="onun
+  Load호출" onclick="onunLoadFunc()" /> <!--창닫기할 때 새로운 창 계속 뜸(옛날에...스팸...) 이제 브라우저에서 다 막아둠-->
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>newWindow.html(새창띄우기)</title>
+  <script>
+    'use strict';
+
+    function newWin() {
+      // window.open(); // 새창띄우기 명령. window가 최상위 객체.
+      let url = "https://www.naver.com";
+      let windowName = "winName"; // 생략가능 (꼭 써주는 게 좋음)
+      // let opt = "width=800px, height=600px"; // CSS에서는 width: 800px ; height: 600px => JS(= ,)와 CSS(: ;) 구분 잘 하기! 
+      let opt = "width=800px, height=600px, left=300px, top=200px"; // x(left),y(top)축 좌표지정 창 띄우기
+      window.open(url, windowName, opt);
+    }
+  </script>
+</head>
+<body>
+  <h2>새창 띄우기 - 부모창</h2>
+  <p>
+    <input type="button" value="새창띄우기" onclick="newWin()">
+  </p> 
+</body>
+</html>

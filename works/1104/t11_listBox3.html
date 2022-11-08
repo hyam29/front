@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리스트상자연습3</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    /*
+    function fCheck() {
+      let fruit = document.getElementById("fruit").value;
+      if(fruit == "") {
+        alert("과일을 선택해 주세요!")
+        return false; // false 디폴트므로 생략가능
+      }
+      else {
+        document.getElementById("demo").innerHTML = "선택한 과일은 <font color='red'>"+fruit+"</font>"
+      }
+
+      let fruits = "";
+
+      for (let i=0; i<myform.fruit.length; i++) {
+        if(myform.fruit.options[i].selected) {
+          fruits += myform.fruit[i].value + "/"; // 배열 값 부를 때, "/" 구분자를 넣어주면 후에 / 로 구분이 쉬움
+        }
+      }
+      fruits = fruits.substring(0, fruits.length-1);
+
+      demo.innerHTML = "선택한 과일은? <font color ='red'><b>"+fruits+"</b></font> 입니다."
+    }
+    */
+
+    function fCheck(e) { // this로 값 넘겨서(66행) 이벤트 발생한다는 의미인 'e'를 넣어줌
+      const values = [];
+      const texts = [];
+      
+      for(let i=0; i<e.options.length; i++) {
+        const fruit = e.options[i];
+        if(fruit.selected) {
+          values.push(fruit.value); // values 배열에 e.options(선택된) 담기
+          texts.push(fruit.text); // value 말고 text를 출력해냄
+        }
+      }
+      demo.innerHTML = "선택한 과일은? <font color ='red'><b>"+values+"</b></font> 입니다."
+      demo2.innerHTML = "선택한 과일은? <font color ='red'><b>"+texts+"</b></font> 입니다."
+
+    }
+
+    function rClear() {
+      demo.innerHTML = "";
+    }
+
+  </script>
+  <style>
+    .b {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>리스트상자 연습3</h2>
+    <form name="myform">
+      <div class="form-group"><label for="fruit">좋아하는 과일을 선택하세요</label></div>
+      <div>
+        <select name="fruit" id="fruit" size="5" multiple onchange="fCheck(this)" class="form-control mb-2">
+        <option value="">선택해주세요</option>
+        <option value="사과">1.사과</option>
+        <option value="배">2.배</option>
+        <option value="바나나">3.바나나</option>
+        <option value="딸기">4.딸기</option>
+        <option value="수박">5.수박</option>
+        <option value="복숭아">6.복숭아</option>
+        <option value="파인애플">7.파인애플</option>
+        <option value="자몽">8.자몽</option>
+        <option value="자몽">9.포도</option>
+        <option value="자몽">10.감귤</option>
+        <option value="자몽">11.자두</option>
+      </select>
+      </div>
+      <div>
+        <input type="button" value="선택된과일은" onclick="fCheck()" class="btn btn-success form-control mb-2" />
+        <input type="reset" value="다시선택" onclick="rClear()" class="btn btn-danger form-control" />
+      </div>
+    </form>
+    <div id="demo" class="mt-4 b"></div>
+    <div id="demo2" class="mt-4 b"></div>
+  </div>
+</body>
+</html>

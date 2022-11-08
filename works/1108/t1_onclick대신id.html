@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.onload</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    window.onload = function() { // 1st. 윈도우를 로딩시킴(window.onload) 왜냐! document(myform)불러오기 위해서! + 익명함수 사용!
+      let costVar = document.getElementById("cost");
+      let suVar = document.getElementById("su");
+      let demo = document.getElementById("demo");
+      let totalBtn = document.getElementById("totalBtn");
+
+      totalBtn.addEventListener('click',function() { //swing때 배운 것... 리스너(감지)
+        let cost = Number(costVar.value); // Number = parseInt
+        let su = Number(suVar.value);
+        if(isNaN(cost) || isNaN(su)) {
+          alert("숫자만 입력하세요.")
+          return false;
+        }
+
+        let res = cost * su;
+        demo.innerHTML = res + "원";
+
+      }); 
+    }
+
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>상품가격 계산</h2>
+    <form name="myform">
+      <div>
+        상품가격
+        <input type="text" name="cost" id="cost" autofocus class="form-control" />
+      </div>
+      <div>
+        수량
+        <input type="number" name="su" id="su" class="form-control mb-3" />
+      </div>
+      <div>
+        <input type="buttno" value="계산" id="totalBtn" class="btn btn-success"/>
+        <!--항상 onclick으로 안줘도 됨-->
+      </div>
+    </form>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

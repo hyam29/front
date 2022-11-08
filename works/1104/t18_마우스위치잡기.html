@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스위치잡기</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+    
+    // CSS에서는 background-color!!! -> 카멜?표기법에 의해 - 지우면서 뒷문자 대문자(c->C)로! 
+    function mClick() {
+      // alert("클릭 이벤트 발생")
+      document.getElementById("demo").style.backgroundColor = "#f00";
+      document.getElementById("deom").style.color = "#fff";
+    }
+
+    function mDblClick() {
+      // alert("더블클릭 이벤트 발생")
+      document.getElementById("demo").style.backgroundColor = "#fff";
+      document.getElementById("deom").style.color = "#000";
+    }
+
+    function mDown(e) {
+      let str = "";
+      let x = e.screenX;
+      let y = e.screenY;
+      // 스크린에 x 좌표 받겠다
+      // e.type : 어떤 이벤트가 발생했는지 간단히 알려줌
+      str += "발생한 이벤트 : " + e.type + "<br/>";
+      str += "X 좌표 : <b>" + x + "</b><br/>";
+      str += "Y 좌표 : <b>" + y + "</b><br/>";
+
+
+      demo.innerHTML = str;
+    }
+
+    document.onclick = mClick;
+    document.ondblclick = mDblClick;
+    document.onmousedown = mDown;
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>마우스위치잡기</h2>
+    <p>마우스를 클릭하시면 현재 좌표가 출력됩니다.</p>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON방식에 대한 이해</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    const member = {
+      name: '홍길동',
+      age: 25,
+      color: 'white',
+      birthday: new Date(),
+      atom: () => {
+        console.log("성명 : " + member.name);
+      }
+    }
+
+    let json = JSON.stringify(member); // 오브젝트를 제이슨(스트링)으로 변환
+    console.log(json);
+    console.log(json);
+    
+    // atom이 26행 콘솔에 출력 안돼서 30행 작성
+    const obj = JSON.parse(json); // 스트링으로 만든 JSON을 다시 Obect로 변환함 (pasrse)
+    console.log(obj);
+    console.log(member.atom());
+    // 오류 뜨긴 함... 
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>웹을 통한 값의 전달방식</h2>
+    <pre>
+      HTTP란? Server와 Client 사이의 값들을 전송해주는 통신을 정의한 프로토콜
+      HTTP : HyperText Transfer Protocol
+      클라이언트가 서버에 요청(request)할 수 있고, 서버는 클라이언트에게 응답(response)하게 됨.
+
+      클라이언트가 서버에 요청해서 응답받아올 때, 비동기식을 통해서 값들을 받아오는 방식을 AJax라고 한다.
+
+      - AJax : Asynchronous JavaScript And XML
+      - XML : HTML과 같은 마크업 언어이다. 서버와 데이터를 주고받을 때 사용되는 대표적인 언어로서,
+              동기화 된 자료를 전송하게 된다. 이때, XML은 불필요한 태그가 많이 전송되기에 가독성이 떨어진다.
+              따라서, 요즘은 많이 사용하지 않고 있다.
+      -JSON : JavaScript Object Notation 으로 서버와의 전송에 필요한 데이터 포맷을 말한다.  
+              JSON방식은 모바일에서의 서버와 데이터 전송에도 주로 사용되고 있으며, 
+              프로그램의 종류나 플랫폼에 상관없이 사용할 수 있다. (예: C, C+, C++, Java, Python, PHP, 코틀린, GO언어 등) 
+              자바스크립트에서는 객체와 같이 '키(key):값(value)'으로 구성되어 처리된다.
+              처리방식은 Object를 String으로 직렬화(deserialize)해서 다시 Object로 변환해서 사용하게 한다.
+
+            예1) 논리값을 JSON을 이용해서 스트링으로 변환 (=직렬화)
+            let json = JSON.stringify(true);
+            console.log(json); // 결과 : 'true'
+
+            예2) 배열을 JSON을 이용해서 스트링으로 변환
+            let json = JSON.stringify(['apple', 'banana']);
+            console.log(json); // 결과 : ["apple","banana"] !! 큰 따옴표("")로 둘러싸이게 됨
+
+            예3) Object를 JSON을 이용해서 스트링으로 변환
+            
+    </pre>
+    <hr/>
+  </div>
+  <p><br/></p>
+</body>
+</html>
