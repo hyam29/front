@@ -24,9 +24,9 @@
       let totalBtn = document.getElementById("totalBtn");
 
       /*
-        기존대로 .value 안 받고(16행에서) 왜 27행에서 받는지?
-        필요시 뒤에 메소드 명만 적어서 코딩량 줄이기 위해서. (ex) 31~32행)
-        => chainning 기법 (제이쿼리에서 사용) 
+        기존대로 .value 안 받고 왜 32~33행에서 받는지?
+        필요시 뒤에 메소드 명만 적어서 코딩량 줄이기 위해서. (ex) 36~37행)
+        => chainning 기법 사용 위해,,, (제이쿼리에서 사용) 
       */
       totalBtn.addEventListener('click',function() { //swing때 배운 것... 리스너(감지)
         let cost = Number(costVar.value); // Number(class 개념) = parseInt

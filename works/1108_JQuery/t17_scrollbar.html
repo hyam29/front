@@ -15,10 +15,10 @@
     $(function () {
       let boxHeight= $('#intro').height();
       let scrollHight= $('#intro').prop('scrollHeight');
-      // let scrollTop = $('#intro').scrollTop();
-      // console.log(boxHeight); // 출력값 192 (패딩때문에 높이가 줄어듦)
-      // console.log(scrollHight); // 출력값 726 (글자가 현재 726인 듯?)
-      // console.log(scrollTop); // 출력값 0 -> 계산 안해도 됨
+      let scrollTop = $('#intro').scrollTop();
+      console.log(boxHeight); // 출력값 192 (패딩때문에 높이가 줄어듦)
+      console.log(scrollHight); // 출력값 726 (글자가 현재 726인 듯?)
+      console.log(scrollTop); // 출력값 0 -> 계산 안해도 됨
 
       let chai = scrollHight - boxHeight; // 나중에 내용 더 추가하면 +x 해서 위치 조정 가능
       $('#intro').scrollTop(chai);

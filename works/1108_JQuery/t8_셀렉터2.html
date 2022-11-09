@@ -12,6 +12,9 @@
   <script>
     'use strict';
 
+    /* 배열객체로 설정된 항목의 색인값으로 자료를 제어해보자!!! */
+
+
     // 프로젝트 위해 JS구글링하면 예제로는 JQuery로 많이 나옴...
     // 따라서 이걸 바탕으로 공부해야 함
 
@@ -27,6 +30,11 @@
       console.log(first);
       first.style.color = 'red'; // JS 명령임...
 
+      let third = atom[2];
+      console.log(third);
+      third.style.color = 'green';
+
+
       // 배열로 꺼낸 항목을 jQuery로 사용한 예
       let second = atom[1];
       console.log(second);
@@ -38,6 +46,7 @@
         console.log(item);
         $(item).css('backgroundColor','pink');
       });
+
     });
 
   </script>
