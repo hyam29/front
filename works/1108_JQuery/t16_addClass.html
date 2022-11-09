@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addClass</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      $('#google').addClass('userHover');
+      $('#google').removeClass('userHover');
+
+      $('#menu2 button').mouseenter(function () {
+        $(this).addClass('userHover');
+      })
+      .mouseleave(function () {
+        $(this).removeClass('userHover');
+      });
+
+      // 그림의 마우스를 올리면 다른그림으로 변경처리
+      $('#img1 img').mouseenter(function () { // hover 보다 mouseenter를 더 많이 사용함
+        $(this).attr({'src':'../../images/4.jpg','width':'150px'}); 
+        // 속성을 지칭할 때, 1. prop 2. attr (prop = attr (prop가 더 나중에 나옴))
+      })
+      .mouseleave(function () {
+        $(this).attr({'src':'../../images/2.jpg','width':'150px'});
+      });
+
+      $('#logo span').mouseenter(function () {
+        $(this).html('<font color=blue><b>그린 컴퓨터</b></font>');
+      })
+      .mouseleave(function () {
+        $(this).text('Green Computer');
+      });
+
+    });
+
+  </script>
+  <style>
+    div#menu1 {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid grey;
+      width: 130px;
+      text-align: center;
+    }
+    button.default {
+      margin: 2px;
+      border: 1px solid grey;
+      width: 100px;
+      text-align: center;
+      background-color: purple;
+      color: white;
+    }
+    #menu1 > button:hover {
+      background-color: white;
+      color: purple;
+    }
+    /* 사용자 생성 클래스 추가하겠다! -> script에 함수 생성 */
+    .userHover {
+      background-color: lightblue;
+      color: navy;
+    }
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2 id="google">Google</h2>
+    <div id="menu1">
+      <button class="default">회사소개</button>
+      <button class="default">CEO소개</button>
+      <button class="default">사업영역</button>
+      <button class="default">제품소개</button>
+    </div>
+    <hr/>
+    <h2 id="google2">Google</h2>
+    <div id="menu2">
+      <button class="default2">회사소개</button>
+      <button class="default2">CEO소개</button>
+      <button class="default2">사업영역</button>
+      <button class="default2">제품소개</button>
+    </div>
+    <hr/>
+    <div id="img1">
+      <img src="../../images/2.jpg" width="150px" title="기여운갱얼~지~" />
+    </div>
+    <hr/>
+    <div id="logo">
+      <span>Green Computer</span>
+    </div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

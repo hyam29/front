@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그룹Tag</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // $('div span').css('color','orange');
+      $('div span:first').css('color','orange'); 
+      // div span:first -> 최초 1개의 span에만 적용
+
+      // 난 그룹으로 하고 싶어!
+      $('div span:first-child').css({'color':'orange','fontSize':'20px'}); 
+      // 1st. div 별로 그훕화 2ed. 그룹화 된 것 중 첫번째 요소만 적용.
+      $('div span:only-child').css({'textDecoration':'underline','fontSize':'40px'}); 
+      // div 그룹 중 span 태그에 1개의 자식(요소)만 있는 곳에 적용
+      $('div span:only-of-type').css({'border':'1px solid red','fontSize':'10px'}); 
+      // div 그룹 중 span 태그 중 타입이 1개인 경우에만 적용...?
+
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <span>1자장면</span>
+    <span>1잠봉</span>
+    <span>1팅스욱</span>
+    <span>1복으맙</span>
+    <span>1팔보채</span>
+  </div>
+  <hr/>
+  <div>
+    <b>2자장면</b>
+    <span>2잠봉</span>
+    <span>2팅스욱</span>
+    <span>2복으맙</span>
+    <span>2팔보채</span>
+  </div>
+  <hr/>
+  <div>
+    <span>3자장면</span>
+  </div>
+  <hr/>
+  <div>
+    <span>3_2자장면</span>
+  </div>
+  <hr/>
+  <div>
+    <span>4자장면</span>
+    <span>4잠봉</span>
+    <span>4팅스욱</span>
+    <b>4복으맙</b>
+    <span>4팔보채</span>
+  </div>
+  <div>
+    <b>5자장면</b>
+    <b>5잠봉</b>
+    <b>5팅스욱</b>
+    <b>5복으맙</b>
+    <span>5팔보채</span>
+  </div>
+  <hr/>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addClass</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      // addClass : 클래스 추가
+      $('#google').addClass('userHover');
+      // removeClass : 클래스 삭제
+      $('#google').removeClass('userHover');
+
+      /*
+      $('#menu2 button').mouseenter(function () {
+        $(this).addClass('userHover');
+        // console.log("안");
+      });
+      $('#menu2 button').mouseleave(function () {
+        $(this).removeClass('userHover');
+        // console.log("팎");
+      });
+      */
+      // 위의 주석을 chainning 기법으로 작성 (이렇게 만드는 게 실무에서 더 많이 사용)
+      $('#menu2 button').mouseenter(function () {
+        $(this).addClass('userHover');
+      })
+      .mouseleave(function () {
+        $(this).removeClass('userHover');
+      });
+    });
+
+  </script>
+  <style>
+    div#menu1 {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid grey;
+      width: 130px;
+      text-align: center;
+    }
+    button.default {
+      margin: 2px;
+      border: 1px solid grey;
+      width: 100px;
+      text-align: center;
+      background-color: purple;
+      color: white;
+    }
+    #menu1 > button:hover {
+      background-color: white;
+      color: purple;
+    }
+    /* 사용자 생성 클래스 추가하겠다! -> script에 함수 생성 */
+    .userHover {
+      background-color: lightblue;
+      color: navy;
+    }
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2 id="google">Google</h2>
+    <div id="menu1">
+      <button class="default">회사소개</button>
+      <button class="default">CEO소개</button>
+      <button class="default">사업영역</button>
+      <button class="default">제품소개</button>
+    </div>
+    <hr/>
+    <h2 id="google2">Google</h2>
+    <div id="menu2">
+      <button class="default2">회사소개</button>
+      <button class="default2">CEO소개</button>
+      <button class="default2">사업영역</button>
+      <button class="default2">제품소개</button>
+    </div>
+    <hr/>
+  </div>
+  <p><br/></p>
+</body>
+</html>

@@ -4,36 +4,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>window.onload</title>
+  <title>유지보수1</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
+    // 유지보수는 원래 작성코드 건들지 않는 게 좋음!!!
+
     'use strict';
 
-    window.onload = function() { // 1st. 윈도우를 로딩시킴(window.onload) 왜냐! document(myform)불러오기 위해서! + 익명함수 사용!
-      let costVar = document.getElementById("cost");
-      let suVar = document.getElementById("su");
-      let demo = document.getElementById("demo");
-      let totalBtn = document.getElementById("totalBtn");
+    $(document).ready(function () {
 
-      totalBtn.addEventListener('click',function() { //swing때 배운 것... 리스너(감지)
-        let cost = Number(costVar.value); // Number = parseInt
-        let su = Number(suVar.value);
+      $("#demo").css({"color":'red',"fontSize":"20pt"}); 
+
+      $("#totalBtn").click(function () {
+        let cost = $("#cost").val();
+        let su = $("#su").val();
         if(isNaN(cost) || isNaN(su)) {
           alert("숫자만 입력하세요.")
+          $("#cost").select();
+          $("#cost").focus();
           return false;
         }
-
+        
         let res = cost * su;
         demo.innerHTML = res + "원";
+      });
+    });
 
-      }); 
-    }
-
-
+    // 이곳에 새로운 유지보수 내역을 기록 (날짜와 함께...) => 오버라이딩 (나중에 작성된 것이니까 아래 스타일이 적용되어 출력됨)
+    $(document).ready(function () {
+      $("#demo").css({"color":"blue","fondSize":"30pt"});
+    });
   </script>
+  <style>
+    /*
+    #demo {
+      color: lightcoral;
+      font-size: 20pt;
+    }
+    */
+  </style>
 </head>
 <body>
   <p><br/></p>
@@ -50,7 +64,6 @@
       </div>
       <div>
         <input type="buttno" value="계산" id="totalBtn" class="btn btn-success"/>
-        <!--항상 onclick으로 안줘도 됨-->
       </div>
     </form>
     <hr/>

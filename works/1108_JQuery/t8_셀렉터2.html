@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>셀렉터2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    // 프로젝트 위해 JS구글링하면 예제로는 JQuery로 많이 나옴...
+    // 따라서 이걸 바탕으로 공부해야 함
+
+    $(function () {
+      // 1st. 배열 제어를 위해서 JS 명령으로 변수에 담아줘야 함!
+      let atom = $('.test').css('color','orange'); 
+      console.log(atom); // 배열로 출력됨
+
+      /* 배열객체로 설정된 항목의 색인값으로 자료를 제어해보자!!! */
+
+      // 배열로 꺼낸 항목을 자바스크립트로 사용한 예
+      let first = atom[0];
+      console.log(first);
+      first.style.color = 'red'; // JS 명령임...
+
+      // 배열로 꺼낸 항목을 jQuery로 사용한 예
+      let second = atom[1];
+      console.log(second);
+      $(second).css('color','blue'); // 선택자 아닌 경우 그냥 작성하면 됨
+      console.clear();
+
+      // 반복문(순환) 처리
+      atom.each(function (i,item) { // each(매개변수(인덱스, 요소)) -> JS의 forEach문과 요소, 인덱스번호 순서가 다름!!!
+        console.log(item);
+        $(item).css('backgroundColor','pink');
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>진달래 꽃</h2>
+    <p>작가 : 김소월</p>
+    <div id="a">1연</div>
+    <div>나보기가 <span class="test">역겨워</span> 가실때에는</div>
+    <div>말없이 고이보내 드리오리다.</div>
+    <div id="a">2연</div>
+    <div>영변에 약산 진달래꽃</div>
+    <div class="test2 main">아름따다 <h4>가실길에</h4> 뿌리오리다.</div>
+    <div id="a">3연</div>
+    <div id="b">가시는 걸음걸음 놓인 그 꽃을</div>
+    <div>사뿐이 <span class="test">즈려밟고</span> 가시옵소서</div>
+    <div id="a">4연</div>
+    <div>나보기가 <span class="main">역겨워</span> 가실때에는</div>
+    <div><span id="a">죽어도</span><span class="test">아니눈물</span> 흘리오리다.</div>
+    <div>The End</div>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

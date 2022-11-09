@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤바제어</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      let boxHeight= $('#intro').height();
+      let scrollHight= $('#intro').prop('scrollHeight');
+      // let scrollTop = $('#intro').scrollTop();
+      // console.log(boxHeight); // 출력값 192 (패딩때문에 높이가 줄어듦)
+      // console.log(scrollHight); // 출력값 726 (글자가 현재 726인 듯?)
+      // console.log(scrollTop); // 출력값 0 -> 계산 안해도 됨
+
+      let chai = scrollHight - boxHeight; // 나중에 내용 더 추가하면 +x 해서 위치 조정 가능
+      $('#intro').scrollTop(chai);
+    });
+
+  </script>
+  <style>
+    #intro {
+      width: 250px;
+      height: 200px;
+      padding: 3px;
+      border: 1px solid blue;
+      background-color: aliceblue;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btnEnd" class="btn btn-secondary" /></div>
+    <h2>자기소개</h2>
+    <div id="intro">
+      <div>1.자기소개를 작성합니다.</div>
+      <div>2.자기소개를 작성합니다.</div>
+      <div>3.자기소개를 작성합니다.</div>
+      <div>4.자기소개를 작성합니다.</div>
+      <div>5.자기소개를 작성합니다.</div>
+      <div>6.자기소개를 작성합니다.</div>
+      <div>7.자기소개를 작성합니다.</div>
+      <div>8.자기소개를 작성합니다.</div>
+      <div>9.자기소개를 작성합니다.</div>
+      <div>10.자기소개를 작성합니다.</div>
+      <div>11.자기소개를 작성합니다.</div>
+      <div>12.자기소개를 작성합니다.</div>
+      <div>13.자기소개를 작성합니다.</div>
+      <div>14.자기소개를 작성합니다.</div>
+      <div>15.자기소개를 작성합니다.</div>
+      <div>16.자기소개를 작성합니다.</div>
+      <div>17.자기소개를 작성합니다.</div>
+      <div>18.자기소개를 작성합니다.</div>
+      <div>19.자기소개를 작성합니다.</div>
+      <div>20.자기소개를 작성합니다.</div>
+      <div>21.자기소개를 작성합니다.</div>
+      <div>22.자기소개를 작성합니다.</div>
+      <div>23.자기소개를 작성합니다.</div>
+      <div>24.자기소개를 작성합니다.</div>
+      <div>25.자기소개를 작성합니다.</div>
+      <div>26.자기소개를 작성합니다.</div>
+      <div>27.자기소개를 작성합니다.</div>
+      <div>28.자기소개를 작성합니다.</div>
+      <div>29.자기소개를 작성합니다.</div>
+      <div>30.자기소개를 작성합니다.</div>
+    </div>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>선택자 연습</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    // 선택자 연습 작은따옴표('')로 둘러쌈!
+    $(document).ready(function () {
+      // 전체 선택자 (*)
+      $('*').css('color',"green");
+
+      // 태그 선택자
+      $('h2').css('backgroundColor',"lightblue");
+
+      // 아이디 선택자
+      $('#a').css('fontSize',"20pt"); // jQuery는 JS 이므로, CSS는 id가 여러개 오면 전체 적용 되지만, JQ는 상위 하나만 적용됨
+      
+      // 클래스 선택자
+      $('.test').css('backgroundColor',"lightgreen");
+      $('.test3').css('fontSize','25pt');
+      
+      // 조합 선택자 (쓰까) => 붙여 작성
+      $('div#a').css('color','orange');
+      $('span#a').css('color','brown');
+      $('span#a').css('backgroundColor','yellow');
+
+      // 포함(태그) 선택자 (= 자손 선택자) => 띄어쓰기로 구분
+      $('div h2').css('fontStyle','italic');
+      $('div .main').css('fontFamily','궁서'); 
+
+      // 묶음 선택자 작은따옴표('') 안에 한꺼번에 작성! 쉼표(,) 로 구분
+      $('#a, #b, h4, .main').css("textDecoration",'underline');
+    });
+
+  </script>
+  <style>
+    /* #a {font-size: 20pt} */
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>진달래 꽃</h2>
+    <p>작가 : 김소월</p>
+    <div id="a">1연</div>
+    <div>나보기가 <span class="test">역겨워</span> 가실때에는</div>
+    <div>말없이 고이보내 드리오리다.</div>
+    <div id="a">2연</div>
+    <div>영변에 약산 진달래꽃</div>
+    <div class="test2 main">아름따다 <h4>가실길에</h4> 뿌리오리다.</div>
+    <div id="a">3연</div>
+    <div id="b">가시는 걸음걸음 놓인 그 꽃을</div>
+    <div>사뿐이 <span class="test">즈려밟고</span> 가시옵소서</div>
+    <div id="a">4연</div>
+    <div>나보기가 <span class="main">역겨워</span> 가실때에는</div>
+    <div><span id="a">죽어도</span> <span class="test test3">아니눈물</span> 흘리오리다.</div>
+    <div>The End</div>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>

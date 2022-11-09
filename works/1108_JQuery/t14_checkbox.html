@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스 값 넘기기</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    // 버튼의 name 객체로 접근하는 방법(19행) : [] (원래는 onclick() 이나, id(1108_t1)로 접근했었음)
+    // class 접근 (21행)
+
+    $(function () {
+      $('.container input[name="choiceBtn1"]').click(function () { 
+        let fruitArray = [];
+        
+        // each() 사용
+        $('.container input[class="fruit"]').each(function (i,item) { // 여러개의 checkbox 값이 담기므로 배열에 담아줌
+          if($(item).is(':checked')) { // = 대신 : 작성
+            // $(item).css('outline','1px solid red');
+            fruitArray.push($(item).val());
+          // }
+          // else {
+            // $(item).css('outline','0px solid red');
+          }
+        });
+        $('#demo').html(fruitArray.join('/'));
+      });
+    });
+  /*======================================================================*/
+    $(function () {
+      $('.container input[name="choiceBtn2"]').click(function () { 
+          
+        // map() 사용
+        let fruitArr2 = $('.container input[class="fruit"]').map(function (i,item) { // 여러개의 checkbox 값이 담기므로 배열에 담아줌
+          if($(item).is(':checked')) { 
+            return $(item).val();
+          }
+        }).get().join("/");
+        
+        $('#demo').html(fruitArr2); // DB에 값 넘길 때, fruitArr2 변수명만 넘기면 됨
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>좋아하는 과일은</h2>
+    <form name="myform">
+      <p>
+        <input type="checkbox" name="fruit" value="사과" class="fruit" />1.사과&nbsp;
+        <input type="checkbox" name="fruit" value="배" class="fruit" />2.배&nbsp;
+        <input type="checkbox" name="fruit" value="바나나" class="fruit" />3.바나나&nbsp;
+        <input type="checkbox" name="fruit" value="키위" class="fruit" />4.키위&nbsp;
+        <input type="checkbox" name="fruit" value="포도" class="fruit" />5.포도&nbsp;
+        <input type="checkbox" name="fruit" value="수박" class="fruit" />6.수박&nbsp;
+        <input type="checkbox" name="fruit" value="복숭아" class="fruit" />7.복숭아&nbsp;
+        <input type="checkbox" name="fruit" value="딸기" class="fruit"/>8.딸기
+      </p>
+      <p>
+        <input type="button" value="선택1(each)" name="choiceBtn1" class="btn btn-primary" />
+        <input type="button" value="선택2(map)" name="choiceBtn2" class="btn btn-success" />
+      </p>
+    </form>
+    <hr/>
+    <div id="demo"></div>
+  </div>
+  <p><br/></p>
+</body>
+</html>
