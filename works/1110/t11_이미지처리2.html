@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지처리</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+  <script>
+    'use strict';
+
+    $(function () {
+      $('#product img').mouseover(function () {
+        // 변수에 이미지 소스 주소를 담을 수 있음!!! good!
+        let imgSrc = $(this).attr('src');
+
+        let img = '<img src="'+imgSrc+'" width="300px" height="220px" />'; 
+        $('#demo').html(img);
+      });
+    });
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>이미지 속성 변경</h2>
+  <div id="product">
+    <img src="../../images/1.jpg" width="80px" height="70px"/>
+    <img src="../../images/2.jpg" width="80px" height="70px"/>
+    <img src="../../images/3.jpg" width="80px" height="70px"/>
+    <img src="../../images/4.jpg" width="80px" height="70px"/>
+    <img src="../../images/niagarafalls.jpg" width="80px" height="70px"/>
+  </div>
+  <hr/>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

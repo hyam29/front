@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blur : 2개 이벤트 동시에 주기</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      // 2개의 이벤트 동시에 발생하기 위한 코드 작성방법
+      $('#txtName').on('mouseover focus' , function () { // mouseover와 focus 이벤트에 동일 기능을 동시에 주려고 따옴표로 묶고 쉼표로 구분
+        $(this).next().next().css('backgroundColor','orange');
+      });
+      $('#txtName').on('mouseout blur' , function () {
+        $(this).next().next().css('backgroundColor','white');
+      });
+    });
+
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>focus와 blur 이벤트 처리</h2>
+  <form name="myform">
+    <div>
+      성명 : <input type="text" name="name" id="txtName" class="form-control">
+      <input type="button" value="클릭" id="btn1" class="btn btn-success form-control m-3" />
+      <div id="demo">내용이 없습니다.</div>
+    </div>
+    <hr/>
+  </form>
+</div>
+<p><br/></p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지처리</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+  <script>
+    'use strict';
+    let addTbl; // 테이블 추가할 때 마다 사용해야 하므로, 전역변수
+
+    function insRow() {
+      addTbl = document.getElementById("addTable");
+      let addRow = addTbl.insertRow(); // add테이블(클래스때랑 비슷한 듯)의 행의 개념으로 한개를 추가할거야~ 라는 의미
+      addRow.onmouseover = function () { //JS 익명함수
+        addTbl.clickedRowIndex = this.rowIndex; // clickedRowIndwx : 클릭한 Row의 위치를 반환(확인)
+        // => 현재 선택한 열의 index 번호를 
+      }
+      let addCell = addRow.insertCell(); // 앞에서 클릭된 행의 위치를 얻어와서, 현재 테이블의 해당 행의 열(=셀)에 삽입
+
+      // 앞에서 삽입 시켜놓은 셀에 추가될 테이블의 내용 기록
+      let formTag = "";
+      formTag += '단가:<input type="text" name="addText1" style="width:60px; height:20px; "/>';
+      formTag += ' 수량:<input type="text" name="addText2" style="width:60px; height:20px; " onblur="formCalc();"/>';
+      formTag += ' 금액:<input type="text" name="result" readonly style="width:60px; height:20px;"/>';
+      formTag += ' <input type="button" value="삭제" onclick="removeRow()" />';
+
+      addCell.innerHTML = formTag;
+    }
+
+    // 추가된 행(table)을 삭제
+    function removeRow() {
+      addTable.deleteRow(addTbl.clickedRowIndex);
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <form name="myform">
+    <table>
+      <tr>
+        <td>
+          <input type="button" value="상품추가" onclick="insRow()"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table id="addTable" width="400px">
+            <tr>
+              <td>
+                단가:<input type="text" name="addText1" style="width:60px; height:20px; "/>
+                수량:<input type="text" name="addText2" style="width:60px; height:20px; " onblur="formCalc();"/>
+                금액:<input type="text" name="result" readonly style="width:60px; height:20px;"/>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <table width="400px">
+      <tr>
+        <td style="text-align:center">
+          <input type="button" value="확인" onclick="fChcek()"/>
+          <input type="reset" value="다시입력"/>
+          <input type="button" value="초기화" onclick="location.reload()"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+<p><br/></p>
+</body>
+</html>

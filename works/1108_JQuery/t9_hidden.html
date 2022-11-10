@@ -30,7 +30,7 @@
       
       // $('#demo div:first').text(showArray); // demo에서 첫번째div
       // text로 출력시 .container 안 div (79~80행)도 보임 따라서, html로 작성!
-      $('#demo div:first').html(showArray);
+      $('#demo div:first').html(showArray); // demo 안에 있는 첫번째 div에 출력하겠다. (79행)
       
 
       //map문을 이용한 출력 안된 부분 보이게 처리 (hidden 출력)
@@ -57,7 +57,7 @@
       }).get().join('/');
       console.log(hiddenArray);
       console.clear();
-      $('#demo div:last').html('<br/>'+hiddenArray); // 마지막 div만 한칸 띄워서 출력하고 싶다.
+      $('#demo div:last').html('<br/>'+hiddenArray); // 마지막 div(80행)에 한칸 띄워서 출력하고 싶다.
     });
 
   </script>

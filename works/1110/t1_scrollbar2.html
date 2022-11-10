@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤바제어</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      let no = 0; // JQ 내부에서 사용하는 전역변수
+      let chai;
+      let scrollTop;
+      let scrollHeight;
+      let boxHeight;
+
+      // 초기데이터를 DB에서 가져와 레이어(panel)에 추가시켜준다.
+      function makeDate() {
+        let str = '';
+        for(let i=0; i<20; i++) { // i 는 줄의 개수 (20줄만 보여줄거야)
+          no++;
+          str += "<h3>Content: " + no + "</h3>";
+        }
+        $('#panel').append(str); // append 명령 : 지정된 위치(pannel)에 명령(str)을 넣는 명령어
+      }
+      makeDate(); // 초기데이터를 레이어에 담아서 출력시키기 위해 호출
+      // 순차적으로 진행되니까, 함수를 먼저 만들고 여기서 호출해야 인식 됨! 17행 위치에 두면 X
+
+      // on : 이벤트발생할거야('어떤이벤트?=스크롤할이벤트' , function (이벤트) {이벤트기능들~})
+      $('#container #panel').on('scroll', function (evt) {
+        scrollTop = $(this).scrollTop(); 
+        // 
+        scrollHeight = $(this).prop('scrollHeight');
+        // 내용의 높이 content1~content2
+        boxHeight = $(this).height();
+        // console.log('st'+scrollTop);
+        // console.log('sh'+scrollHeight);
+        // console.log('bh'+boxHeight);
+
+        // let chai = scrollHeight - boxHeight; // 항상 아래 영역으로 이동할 것
+        chai = scrollHeight - scrollTop; // scrollTop의 위치로 빼주는 게 사용자가 원하는 영역으로 가기 더 쉬우니까...?
+
+        // 박스크기랑 비교해서 이를 벗어나면 스크롤이 내려가서 자료 더 불러오기 가능!
+        if(chai === boxHeight) { // === : 타입과 속성까지 비교
+          $('.processing').show().delay(1000).hide(500, function () { // 1초 delay 해줄거야~ -> 다시 없애야하니까 hide -> 자료 뿌려야 하니까 function
+            makeDate();
+          }); 
+        }        
+      }); 
+
+
+      // 시작으로 이동
+      $('#btnStart').click(function () {
+        $('#container #panel').scrollTop(0);
+      });
+
+      // 끝으로 이동
+      $('#btnEnd').click(function(){
+        scrollTop = $('#panel').scrollTop();
+        scrollHeight = $('#panel').prop('scrollHeight');
+        boxHeight = $('#panel').height();
+
+        chai = scrollHeight - boxHeight;
+
+        $('#container #panel').scrollTop(chai);
+      });
+    });
+    
+  </script>
+  <style>
+    #container{width: 600px;}
+    #panel {
+      width: 600px;
+      height: 300px;
+      overflow: auto;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+  <!-- <div class="container">  -->
+  <div class="card-body">
+    <div>
+  <!-- card-body 클래스명 : 화면에 꽉 차게 출력 (사진으로 화면을 모두 채우고 싶을 때 사용) 화면창 크기 움직여도 고정되어 있음 -->
+      <input type="button" value="영역의 처음으로 이동" id="btnStart" class="btnFirst" onclick="firstCheck()" class="btn btn-secondary" />
+      <input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btnEnd" onclick="lastCheck()" class="btn btn-secondary" />
+    </div>
+  <h2>게시목록리스트</h2>
+  <div id="container">
+    <div id="panel"></div>
+    <div class="processing" style="display: none; text-align: center">
+      <img src="../../images/processing.gif" />
+    </div>
+  </div>
+  </div>
+<p><br/></p>
+</body>
+</html>

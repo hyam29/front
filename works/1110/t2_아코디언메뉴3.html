@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언 메뉴3</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      $('#acc > .content').hide(); // 초기화면에서 부메뉴는 사라져야 함
+
+      // 주메뉴1 클릭시, 서브메뉴1만 열림
+      $('#acc > .menu1').click(function () {
+        // $('div.content').show();
+        // $('#acc > .content').show();
+        $('div.menu + div.content1').show(); // + (인접선택자) : 앞의 요소 바로 뒤에 있는 요소만을 선택함.
+      });
+      // 주메뉴2 클릭시, 서브메뉴2만 열림
+      $('#acc > .menu2').click(function () {
+        $('div.menu + div.content2').show();
+      });
+      // 주메뉴3 클릭시, 서브메뉴3만 열림
+      $('#acc > .menu3').click(function () {
+        $('div.menu + div.content3').show();
+      });
+      // 주메뉴4 클릭시, 서브메뉴4만 열림
+      $('#acc > .menu4').click(function () {
+        $('div.menu + div.content4').show();
+      });
+
+      // 타이틀을 누르면 부메뉴를 닫히게 한다. (당장 개발할 때 보이는 게 귀찮으니까 만들어두고 후에 삭제)
+      $('#title').click(function () {
+        $('#acc > .content').hide();
+      });
+    });
+
+  </script>
+  <style>
+    div.accordion {
+      width: 300px;
+    }
+    div.menu, div.content {
+      border: 1px solid coral;
+      text-align: center;
+      cursor: pointer; /*커서 손모양*/
+    }
+    div.menu {
+      padding: 5px;
+      background-color: lightsalmon;
+      color: white;
+    }
+    div.content {
+      padding: 5px;
+
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+  <div class="card-layout accordion" id="acc">
+    <h3 id="title">아코디언 UI</h3>
+    <div class="menu menu1">주메뉴1</div>
+    <div class="content content1">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+      <a href="#">서브메뉴4</a><br/>
+      <a href="#">서브메뉴5</a>
+    </div>
+    <div class="menu menu2">주메뉴2</div>
+    <div class="content content2">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+      <a href="#">서브메뉴4</a><br/>
+    </div>
+    <div class="menu menu3">주메뉴3</div>
+    <div class="content content3">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+    </div>
+    <div class="menu menu4">주메뉴4</div>
+    <div class="content content4">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+    </div>
+
+    <hr/>
+    <div id="demo">
+      아코디언 메뉴를 jQuery로 만들어봅니다!<br/>
+      jQuery의 플러그인으로도 사용할 수 있는 아코디언 메뉴를 코드로 간단히 만들어봅니다.
+    </div>
+  </div>
+<p><br/></p>
+</body>
+</html>

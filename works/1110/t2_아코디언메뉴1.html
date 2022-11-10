@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언 메뉴</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    
+
+  </script>
+  <style>
+    div.accordion {
+      width: 300px;
+    }
+    div.menu, div.content {
+      border: 1px solid coral;
+      text-align: center;
+      cursor: pointer; /*커서 손모양*/
+    }
+    div.menu {
+      padding: 5px;
+      background-color: lightsalmon;
+      color: white;
+    }
+    div.content {
+      padding: 5px;
+
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+  <div class="card-layout accordion" id="acc">
+    <h3>아코디언 UI</h3>
+    <div class="menu">주메뉴1</div>
+    <div class="content">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+      <a href="#">서브메뉴4</a><br/>
+      <a href="#">서브메뉴5</a>
+    </div>
+    <div class="menu">주메뉴2</div>
+    <div class="content">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+      <a href="#">서브메뉴4</a><br/>
+    </div>
+    <div class="menu">주메뉴3</div>
+    <div class="content">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+    </div>
+    <div class="menu">주메뉴4</div>
+    <div class="content">
+      <a href="#">서브메뉴1</a><br/>
+      <a href="#">서브메뉴2</a><br/>
+      <a href="#">서브메뉴3</a><br/>
+    </div>
+
+    <hr/>
+    <div id="demo">
+      아코디언 메뉴를 jQuery로 만들어봅니다!<br/>
+      jQuery의 플러그인으로도 사용할 수 있는 아코디언 메뉴를 코드로 간단히 만들어봅니다.
+    </div>
+  </div>
+<p><br/></p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지처리</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+  <script>
+    'use strict';
+
+    $(function () {
+      $('#btn1').click(function () {
+        $('#img1').attr({
+          'width':'200px',
+          // 'border':'5px solid black',
+          'title':'그림 설명입니다.'
+        });
+      });
+      $('#btn2').click(function () {
+        // 방법 1.
+        // $('#img1').attr({
+        //   'width':'100px',
+        //   // 'border':'0px',
+        //   'title':'그림 설명입니다.'
+        location.reload(); // 방법 2. 다른 것도 취소될 수 있으니 항상 이렇게 작성X
+      });
+      $('#btn3').click(function () {
+        $('#img1').attr({
+          'src':'../../images/4.jpg',
+          'width':'100px',
+          'title':'2그림 설명입니다.'
+        });
+      });
+    });
+
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>이미지 속성 변경</h2>
+  <p>
+    <button type="button" id="btn1" class="btn btn-primary m-2">크기변경</button>
+    <button type="button" id="btn2" class="btn btn-success m-2">크기복귀</button>
+    <button type="button" id="btn3" class="btn btn-warning m-2">사진변경</button>
+  </p>
+  <div>
+    <img src="../../images/2.jpg" id="img1" width="100px" />
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

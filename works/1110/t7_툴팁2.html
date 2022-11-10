@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>툴팁(마우스 따라다니기)</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      $('h3 a').hover( // 이벤트orCSS명의 함수를 2개 이어서 작성한다면, 
+        function () { // 1번 function = 참(true)
+          $('#toolTip').slideDown(300);
+        },
+        function () { // 2번 function = 거짓(false) 을 의미하게 됨
+          $('#toolTip').slideup(300);
+        }
+      )
+      .mousemove(function (evt) {
+        $('#toolTip').css({'left':evt.pageX+2+'px' , 'top':evt.pageY+20+'px'});
+      });
+    });
+
+  </script>
+  <style>
+    #toolTip {
+      position: absolute;
+      background-color: beige;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>툴팁(풍선 도움말)</h2>
+  <h3><a href="#">JQuery란 무엇입니까?</a></h3>
+  <span id="toolTip">Javascript 라이브러리 입니다.</span>
+</div>
+<p><br/></p>
+</body>
+</html>

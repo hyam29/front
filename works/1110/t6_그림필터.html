@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 30%;
+      height: auto;
+      float: left;
+      max-width: 300px;
+    }
+    #img1 {filter: blur(5px)} /* [px] : 희미하게 처리 */
+    #img2 {filter: brightness(200%)} /* 명도 */
+    #img3 {filter: contrast(250%)} /* 대조? 대비 */
+    #img4 {filter: grayscale(100%)} /* 흑백처리 (100% : 최대 흑백) 많이사용함! */
+    #img5 {filter: hue-rotate(100deg)} /* [angle] 색상, 색조를 각도를 지정해 변경*/
+    #img6 {filter: invert(100%)} /* 색 반전 */
+    #img7 {filter: opacity(0.5)} /* 불투명도 [% or 0~1]*/
+    #img8 {filter: saturate(5)} /* 채도 */
+    #img9 {filter: sepia()} /* 세피아 톤(누런...) 색상 */
+    #img10 {filter: drop-shadow(5px 5px 3px grey)}  /* [px] 그림자 효과 : x축 y축 그림자굵기 색상 */
+  </style>
+</head>
+<body>
+  <h2>그림 필터 적용하기</h2>
+  <img src="../../images/3.jpg" id="img" />
+  <img src="../../images/3.jpg" id="img1" />
+  <img src="../../images/3.jpg" id="img2" />
+  <img src="../../images/3.jpg" id="img3" />
+  <img src="../../images/3.jpg" id="img4" />
+  <img src="../../images/3.jpg" id="img5" />
+  <img src="../../images/3.jpg" id="img6" />
+  <img src="../../images/3.jpg" id="img7" />
+  <img src="../../images/3.jpg" id="img8" />
+  <img src="../../images/3.jpg" id="img9" />
+  <img src="../../images/3.jpg" id="img10" />
+</body>
+</html>

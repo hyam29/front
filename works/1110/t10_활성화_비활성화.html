@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>활성화_비활성화</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+       // 'disabled' = form 형식 text 박스의 'readonly'
+       // 'enabled' <=> 'disabled'
+      
+      // 사용 예시 : 아이디 중복체크 버튼을 눌러야만 회원가입 버튼이 활성화 되게끔 만드는 기능 넣으면 됨
+      
+      // 활성화 버튼
+      $('#btn1').click(function () {
+        $('input[type="text"]').attr('disabled',false);
+        $('input[type="password"]').attr('disabled',false);
+      });
+      // 비활성화 버튼
+      $('#btn2').click(function () {
+        $('input[type="text"]').attr('disabled','disabled'); // 'disabled' = true
+        $('input[type="password"]').attr('disabled',true);
+      });
+      // 활성화 / 비활성화 (like. 토글)
+      $('#btn3').click(function () {
+        let txtFlag = $('input[type="text"]');
+        let pwdFlag = $('input[type="password"]');
+
+        if(txtFlag.is(':enabled') && pwdFlag.is(':enabled')) {
+          txtFlag.attr('disabled','disabled');
+          pwdFlag.attr('disabled','disabled');
+        }
+        else {
+          txtFlag.attr('disabled',false);
+          pwdFlag.attr('disabled',false);
+        }
+      });
+    });
+
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>활성화/비활성화 연습</h2>
+  <form name="myform">
+    아이디 : 
+    <input type="text" name="mid" id="mid" value="hkd1234" class="form-control mb-2" />
+    비밀번호 : 
+    <input type="password" name="pwd" id="pwd" value="1234567890" class="form-control mb-2" />
+    성명 : 
+    <input type="text" name="name" id="name" value="홍길동" class="form-control mb-2" />
+    <button type="button" id="btn1" class="btn btn-primary mr-3">활성화</button>
+    <button type="button" id="btn2" class="btn btn-danger mr-3">비활성화</button>
+    <button type="button" id="btn3" class="btn btn-success">활성화/비활성화</button>
+  </form>
+
+</div>
+<p><br/></p>
+</body>
+</html>

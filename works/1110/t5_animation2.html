@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테이블 속성</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      let y = 0;
+      let x = 0;
+      
+
+      $('#moveRight').click(function () {
+         // animate(속성(기능), 지연시간, 빠르기정도) : 최신 jQuery에서 명령어로 애니메이션 지원해줌
+        $('#img1').animate({'marginLeft':'100px', width:'100px' , height:'100px'}, 
+        // 앞의 속성에서는 따옴표 유무 상관없음!
+        // 왼쪽에 margin 주면, 오른쪽으로 그만큼 이동! => 오른쪽이동버튼
+          500,// 지연시간
+          'linear', // 빠른정도 : normal(빠른정도 사용안할 때...), linear, easing
+          function() {
+            $(this).css('border','1px solid black');
+          }
+        );
+      });
+      $('#moveLeft').click(function () {
+        $('#img1').animate({'marginLeft':'0px', width:'100px' , height:'100px'}, 
+          500,// 지연시간
+          'linear', // 빠른정도 : normal(빠른정도 사용안할 때...), linear, easing
+          function() {
+            $(this).css('border','1px solid black');
+          }
+        );
+      });
+      $('#moveDown').click(function () {
+        if(y>=10) {
+          alert("더이상 아래로 내려갈 수 없습니다.")
+          return;
+        }
+        y++;
+        $('#img1').animate({'marginTop':(y*30)+'px'})
+      });
+    });
+
+  </script>
+  <style>
+    
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>Animation 연습</h2>
+  <hr/>
+  <button type="button" name="moveLeft" id="moveLeft" class="btn-sm btn-primary">왼쪽이동</button>
+  <button type="button" name="moveRight" id="moveRight" class="btn-sm btn-success">오른쪽이동</button>
+  <button type="button" name="moveUp" id="moveUp" class="btn-sm btn-danger">위쪽이동</button>
+  <button type="button" name="moveDown" id="moveDown" class="btn-sm btn-warning">아래쪽이동</button>
+  <br/><hr/><br/>
+  <div>
+    <img src="../../images/2.jpg" width="100px" id="img1" />
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

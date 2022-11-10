@@ -11,19 +11,39 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
     'use strict';
+    let chai;
 
+    // 1. JQ로 버튼 함수 호출하기.
+
+    /*
+      JQ식 작성 시, 변수 사용에 조심해야 함!
+      JQ 내부에서는 변수 사용이 자유롭지만, JS와 함께 작성시에는 영역이 다르므로 변수 사용을 함께할 수 없음
+      따라서, 전역변수로 선언하면 JQ, JS 함께 사용 가능!
+    */
     $(function () {
       let boxHeight= $('#intro').height();
       let scrollHight= $('#intro').prop('scrollHeight');
       let scrollTop = $('#intro').scrollTop();
-      console.log(boxHeight); // 출력값 192 (패딩때문에 높이가 줄어듦)
-      console.log(scrollHight); // 출력값 726 (글자가 현재 726인 듯?)
-      console.log(scrollTop); // 출력값 0 -> 계산 안해도 됨
+      // console.log(boxHeight); // 출력값 192 (패딩때문에 높이가 줄어듦)
+      // console.log(scrollHight); // 출력값 726 (글자가 현재 726인 듯?)
+      // console.log(scrollTop); // 출력값 0 -> 계산 안해도 됨
 
-      let chai = scrollHight - boxHeight; // 나중에 내용 더 추가하면 +x 해서 위치 조정 가능
-      $('#intro').scrollTop(chai);
+      chai = scrollHight - boxHeight; // 나중에 내용 더 추가하면 +x 해서 위치 조정 가능
+      $('#intro').scrollTop(chai); // 스크롤바 영역의 끝으로 이동
+      
+      $('#btnEnd').click(function () {
+        $('#intro').scrollTop(chai);
+      });
+      
     });
-
+    
+    // 2. JS로 버튼 호출 (onclick)
+    // jQuery 밖에 작성시 JS 식으로 작성 (JQuery 안에 작성하면 error)
+    function lastCheck() {
+      alert("lastCheck()함수를 호출하셨습니다.");
+      $('#intro').scrollTop(chai);
+    }
+    
   </script>
   <style>
     #intro {
@@ -39,7 +59,7 @@
 <body>
   <p><br/></p>
   <div class="container">
-    <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btnEnd" class="btn btn-secondary" /></div>
+    <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btnEnd" onclick="lastCheck()" class="btn btn-secondary" /></div>
     <h2>자기소개</h2>
     <div id="intro">
       <div>1.자기소개를 작성합니다.</div>
