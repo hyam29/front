@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test10.html</title>
+  <style>
+    li {
+      list-style: none; /* 본문의 모든 list스타일이 빠짐  */
+    }
+    /* ol>li { */ /* 특정 ol 아래 li 의미 = 자식 */
+      /* ol li { /* 어디있는 ol 이든 어느 li 의미 = 자손 */
+      ol li, h1 { /* , 기준 or 의미 */
+      background-color: lightsalmon;
+    }
+    /* ul>li { */ /*자손*/
+      ol>li>ul>li { /*자식*/
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>선택자(자식/자손)</h1>
+  <h2>길동이가 좋앟나ㅡㄴ 음식 Best 5</h2>
+  <ol>
+    <li>자장면</li>
+    <li>찐빵</li>
+    <li>과일
+      <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>바나나</li>
+      </ul>
+    </li>
+    <li>초콜렛</li>
+    <li>피자</li>
+  </ol>
+</body>
+</html>

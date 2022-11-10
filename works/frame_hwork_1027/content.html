@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <title>content.html</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+      'use strict';
+
+      $(function () {
+        $('.menu li > ul').hide();
+
+        $('.menu li').mouseover(function() {
+          $('>ul', this).stop().slideDown(300); // > : 바로위의 선택자의 아래 를 의미
+        });
+        $('.menu li').mouseout(function() {
+          $('>ul', this).stop().slideUp(300); // > : 바로위의 선택자의 아래
+        });
+      });
+    </script>
+    <style>
+      body {
+        text-align: center;
+      }
+      aside {
+        width: 300px;
+        float: right;
+        display: block;
+      }
+      #tbl {
+        float: left;
+        margin-left: 300px;
+      }
+
+      .menu li {
+        cursor: pointer;
+        list-style: none;
+        text-decoration: none;
+        margin: 20px;
+        color: navy;
+        text-align: left;
+      }
+      #mainText {
+        font-weight: bolder;
+        color: navy;
+        font-size: 1em;
+      }
+      .content {
+        background-color: #eef;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+      }
+      .menu a {
+        text-decoration: none;
+        font-size: 1.2em;
+        display: block;
+      }
+      .content a {
+        font-size: 1em;
+        color: black;
+      }
+      .content a:hover {
+        color: white;
+        background-color: black;
+        display: block;
+      }
+    </style>
+  </head>
+  <body align="center" bgcolor="#fff" class="card-body">
+    <br/>
+    <h2><i>나만 가고 싶은 국내 숨은 여행지 10곳</i></h2>
+    <div id="mainText">
+    <img src="../../images/hwork/imgMain.jpg" height="400px" width="1000px"/><br/><br/>
+      해외여행이 어려운 요즘, 어디로든 떠나고 싶은 여행자들은 국내로 눈길을 돌리고 있다.<br/>
+      언택트 여행, 조용한 여행지, 한적한 소도시 등을 검색하며 국내 곳곳을 누비고 싶은 여행자를 위해 국내 여행지 10곳을 소개한다.<br/><br/>
+    </div>
+    <hr/>
+    </h3>
+    <table border="0px" align="center" cellpadding="0px" cellspacing="0" id="tbl">
+      <tr>
+        <td><a href="anbandegi.html" target="content"><img src="../../images/hwork/anbandegi.jpg" title="소야도_출처: 스카이스캐너" alt="소야도사진" width="600px" height="400" /></a></td>
+        <td rowspan="10" valign="top">
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="center"><b><font size="4">안반데기</font></b></td>      
+      </tr>
+      <tr>
+        <td><a href="biyangdo.html" target="content"><img src="../../images/hwork/biyangdo.jpg" title="제승당_출처: 한국관광공사" alt="제승당사진" width="600px" height="400" /></a></td>              
+      </tr>
+      <tr>
+        <td align="center"><b><font size="4">비양도</font></b></td>      
+      </tr>
+      <tr>
+        <td><a href="hansando.html" target="content"><img src="../../images/hwork/hansando.jpg" title="비양도_출처: 스카이스캐너" alt="비양도사진" width="600px" height="400" /></a></td>              
+      </tr>
+      <tr>
+        <td align="center"><b><font size="4">한산도</font></b></td>      
+      </tr>
+      <tr>
+        <td><a href="sinduri.html" target="content"><img src="../../images/hwork/sinduri.jpg" title="신두리 해안사구_출처: 한국관광공사" alt="신두리 해안사구 사진" width="600px" height="400" /></a></td>              
+      </tr>
+      <tr>
+        <td align="center"><b><font size="4">신두리 해안사구</font></b></td>      
+      </tr>
+      <tr>
+        <td><a href="soyado.html" target="content"><img src="../../images/hwork/soyado.jpg" title="안반데기_출처: 한국관광공사,김봉수" alt="안반데기사진" width="600px" height="400" /></a></td>              
+      </tr>
+      <tr>
+        <td align="center"><b><font size="4">소야도</font></b></td>      
+      </tr>
+    </table>
+    <aside class="card-body ctgory">
+      <ul class="menu">
+      <h3><font color="navy">&nbsp;&nbsp;&nbsp;&nbsp;카테고리</font></h3>
+        <li>
+          <a href="#">꿀팁</a>
+          <ul class="content">
+            <li><a href="#">여행지 추천</a></li>
+            <li><a href="#">렌터카</a></li>
+            <li><a href="#">맛집</a></li>
+            <li><a href="#">쇼핑</a></li>
+            <li><a href="#">액티비티</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul class="content">
+            <li><a href="#">여행지 가이드</a></li>
+            <li><a href="#">축제</a></li>
+            <li><a href="#">설문조사</a></li>
+            <li><a href="#">캠페인</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </body>
+</html>
