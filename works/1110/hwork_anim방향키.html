@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>방향키로 그림 움직이기</title>
+  <title>방향키로 그림 움직이기3</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -12,13 +12,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
     'use strict';
+    let x = 0;
+    let y = 0;
     
     $(function(){
-      let x = 0;
-      let y = 0;
-
       $.mRight = function () {
-        $(document).keydown(function () {
+        // $(document).keydown(function () {
           x++;
           $('#img1').animate({'marginLeft':(x*30)+'px'}, 
             'swing',
@@ -26,10 +25,10 @@
               $(this).css('border','1px solid black');
             }
           );
-        });
+        // });
       };
       $.mLeft = function () {
-        $(document).keydown(function () {
+        // $(document).keydown(function () {
           x--;
           $('#img1').animate({'marginLeft':(x*30)+'px'}, 
             500,
@@ -38,44 +37,44 @@
               $(this).css('border','1px solid black');
             }
           );
-        });
+        // });
       };
       $.mUp = function () {
-        $(document).keydown(function () {
+        // $(document).keydown(function () {
           if(y<=0) {
             alert("더이상 위로 올라갈 수 없습니다.")
             return;
           }
           y--;
           $('#img1').animate({'marginTop':(y*30)+'px'})
-        });
+        // });
       };
       $.mDown = function () {
-        $(document).keydown(function () {
+        // $(document).keydown(function () {
           if(y>=10) {
             alert("더이상 아래로 내려갈 수 없습니다.")
             return;
           }
           y++;
           $('#img1').animate({'marginTop':(y*30)+'px'})
-        });
+        // });
       };
-
-
+    
       $(document).keydown(function(e){
-        if(e.which==37){  //왼쪽키
+        if(e.which==37) {  //왼쪽키
           $.mLeft();
         }
-        else if(e.which==38){  //위
+        else if(e.which==38) {  //위
           $.mUp();
         }
-        else if(e.which==39){  //오른쪽  
+        else if(e.which==39) {  //오른쪽  
           $.mRight();
         }
-        else if(e.which==40){ //아래   
+        else if(e.which==40 ){ //아래   
           $.mDown();
         }
       });
+      
       let j1 = $('h2').offset();
       let j2 = $('#img1').offset();
 
